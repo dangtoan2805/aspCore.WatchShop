@@ -20,7 +20,13 @@ namespace aspCore.WatchShop.Controllers
 
         public IActionResult Index()
         {
-            var data = _context.Products.ToList();
+            // ViewBag.PromotionWatch =  await product.GetProductsBy(Instances.PROMOTION, 1 , Wires.ALL, Sorts.NO, 4);
+            // ViewBag.MenWatch = await product.GetProductsBy(Instances.CATEGORY,Cates.MEN, Wires.ALL,Sorts.NO,4);
+            // ViewBag.WomenWatch = await product.GetProductsBy(Instances.CATEGORY,Cates.WOMEN, Wires.ALL, Sorts.NO,4);
+            ViewBag.PromotionWatch = _context.Products.Take(4).ToList();
+            ViewBag.MenWatch = _context.Products.Take(4).ToList();
+            ViewBag.WomenWatch = _context.Products.Take(4).ToList();
+
             return View();
         }
 

@@ -3,46 +3,108 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - aspCore.WatchShop</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <title>@ViewData["Title"] - watchShop.WebApp</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+    <link href="~/lib/fonts/font-awesome-4.7.0/css/font-awesome.css" rel="stylesheet" />
     <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="~/css/template.css" />
+    <link rel="stylesheet" href="~/css/preloaded.css" />
+    @RenderSection("Css", false)
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">aspCore.WatchShop</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                    </ul>
-                </div>
+    <!--***** Preloaded *****-->
+    <div id="loading">
+        <div id="loading-center">
+            <div id="loading-center-absolute">
+                <div class="object" id="object_one"></div>
+                <div class="object" id="object_two"></div>
+                <div class="object" id="object_three"></div>
+                <div class="object" id="object_four"></div>
+                <div class="object" id="object_five"></div>
+                <div class="object" id="object_six"></div>
+                <div class="object" id="object_seven"></div>
+                <div class="object" id="object_eight"></div>
+                <div class="object" id="object_big"></div>
             </div>
-        </nav>
-    </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>
-
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2020 - aspCore.WatchShop - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
+	</div>
+    <!--***** Header*****-->
+    <header>
+        <div class="container-fluid">
+            <partial name="_HeaderNavbar" />
+        </div>
+        <div class="container-fluid position-relative px-0 " style="width:100%">
+            <div class="collapse position-absolute " id="collapseSearch" style="width:inherit;z-index:10">
+                <from>
+                    <div class="px-5 p-3 bg-light">
+                        <input type="text" id="vt-SearchBar" class="form-control" placeholder="Search ..." />
+                    </div>
+                </from>
+                <div class="bg-light vt-search-result text-center">
+                    <table>
+                        <tbody class="vt-data-search" id="result">
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+            
+        </div> 
+    </header>
+    <!--***** Main*****-->
+    <main>
+        <div role="main" class="pb-3">
+            @RenderBody()
+        </div>
+    </main>
+    <hr />
+    <!--***** Footer *****-->
+    <footer >
+        <partial name="_Footer" />
     </footer>
+    <!--***** Scripts *****-->
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
-    @RenderSection("Scripts", required: false)
+    <script src="~/js/site.js" asp-append-version="true"></script> 
+    <script src="~/js/main.js"></script>
+    @* <script>
+        $(function () {
+            $("#vt-SearchBar").keyup(function (e) {
+                var key = $("#vt-SearchBar").val();
+                var els = $('#result');
+                if (key != "") {
+                    $.get("/Product/Search?key=" + key, function (data) {
+                        els.empty();
+                        data.forEach(e => {
+                            var srcImg = "/product/" + e.images[0];
+                            var img = document.createElement("img");
+                            img.setAttribute('src', srcImg);
+                            var td_first = document.createElement("td");
+                            var td_second = document.createElement("td");
+                            var tr = document.createElement("tr");
+                            td_first.appendChild(img);
+                            var name = document.createElement("p");
+                            name.innerText = e.name;
+                            var price = document.createElement("p");
+                            price.innerText = e.price;
+                            td_second.appendChild(name);
+                            td_second.appendChild(price);
+                            tr.appendChild(td_first);
+                            tr.appendChild(td_second);
+                            var link = document.createElement("a");
+                            link.setAttribute("href", "/Product/ProductDetail?id=" + e.id);
+                            link.append(tr);
+                            $(link).appendTo(els).fadeIn("low");
+                        });
+
+                    });
+                }
+                else
+                    els.empty();
+            });
+        });
+
+    </script> *@
+    @RenderSection("Scripts", false)
 </body>
 </html>

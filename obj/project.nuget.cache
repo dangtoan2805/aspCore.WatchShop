@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "VZOCmo/O0fnKC+l4O6zuzncdj7KCN6Per1oSZiEpSLDk7BnbolG2EQdN8goMFHDCZmdrAtnz4NXz6HEQJxKBIw==",
+  "dgSpecHash": "Nn+feGd8/jT4wYO7pYmXdGM2zEMuitvKiBQV/VMy8meQk87ckBEeYcLeQ1xbWtGZ5rYbZ4kI7q+naPuJ3wdxFQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Toan\\Desktop\\aspCore.WatchShop\\aspCore.WatchShop.csproj",
+  "projectFilePath": "C:\\Users\\Toan\\Documents\\SrcCode\\aspCore.WatchShop\\aspCore.WatchShop.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Toan\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "C:\\Users\\Toan\\.nuget\\packages\\microsoft.bcl.hashcode\\1.1.0\\microsoft.bcl.hashcode.1.1.0.nupkg.sha512",

@@ -4942,11 +4942,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Toan\\Desktop\\aspCore.WatchShop\\aspCore.WatchShop.csproj",
+      "projectUniqueName": "C:\\Users\\Toan\\Documents\\SrcCode\\aspCore.WatchShop\\aspCore.WatchShop.csproj",
       "projectName": "aspCore.WatchShop",
-      "projectPath": "C:\\Users\\Toan\\Desktop\\aspCore.WatchShop\\aspCore.WatchShop.csproj",
+      "projectPath": "C:\\Users\\Toan\\Documents\\SrcCode\\aspCore.WatchShop\\aspCore.WatchShop.csproj",
       "packagesPath": "C:\\Users\\Toan\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Toan\\Desktop\\aspCore.WatchShop\\obj\\",
+      "outputPath": "C:\\Users\\Toan\\Documents\\SrcCode\\aspCore.WatchShop\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

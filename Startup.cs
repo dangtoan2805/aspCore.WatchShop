@@ -54,7 +54,7 @@ namespace aspCore.WatchShop
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=Cart}/{action=Index}/{id?}");
             });
         }
     }

@@ -1,0 +1,255 @@
+﻿@* @model aspCore.WatchShop.Models.ProductVM *@
+
+@{
+    ViewData["Title"] = "ProductDetail";
+}
+@section Css{
+    <link href="~/css/product.css" rel="stylesheet" />
+}
+<div class="container-fluid bg-dark text-center">
+    <h3 class="m-0 py-2 text-white">Thông tin sản phẩm</h3>
+</div>
+<div class="vt-main">
+    <!--***** Bread Crumb*****-->  
+    <div class="container">
+        <ol class="vt-breadcrumb">
+            <li class="breadcrumb-item"><a href="">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Library</li>
+        </ol>
+    </div>
+        <!--*****Content*****-->  
+    <div class="container pb-5">
+        <!--*****Image*****-->  
+        <div class="row pb-5">
+            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 pr-md-5" >
+                <div class="vt-product">
+                    <a>
+                        <div class="vt-product-img">
+                            <img id="vt-photo-show" src="~/product/img_watch_1.jpg" alt="Card image cap">
+                            <img class="" src="~/images/sale.png" />
+                        </div>
+                    </a>  
+                </div>
+                <div class="row vt-gallery" >
+                    <div class="col-3 vt-img  ">
+                        <img src="~/product/img_watch_1.jpg">
+                    </div>
+                    <div class="col-3 vt-img">
+                        <img src="~/product/img_watch_2.jpg">
+                    </div>
+                    <div class="col-3 vt-img">
+                        <img src="~/product/img_watch_3.jpg">
+                    </div>
+                    <div class="col-3 vt-img">
+                        <img src="~/product/img_watch_4.jpg">
+                    </div>
+                    <div class="col-3 vt-img">
+                        <img src="~/product/img_watch_4.jpg">
+                    </div>
+                    <div class="col-3 vt-img ">
+                        <img src="~/product/img_watch_1.jpg">
+                    </div>
+                    <div class="col-3 vt-img">
+                        <img src="~/product/img_watch_2.jpg">
+                    </div>
+                    <div class="col-3 vt-img">
+                        <img src="~/product/img_watch_3.jpg">
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 pl-md-5"  >
+                <h1>Daniel Wellington DW00100164</h1>
+                <div class="row">
+                    <div class="col-4">
+                            Giá:
+                    </div>
+                    <div class="col-8">
+                        <p class="text-right">
+                            <del>899.000 </del> 
+                            <sup>VNĐ</sup>
+                        </p>
+                    </div>
+                    <div class="col-4">
+                            Giảm còn:
+                    </div>
+                    <div class="col-8">
+                        <p class="text-right">
+                            <span class="vt-primary">899.000</span> 
+                            <sup>VNĐ</sup>
+                        </p>
+                    </div>
+                </div>          
+                <div class="row">
+                    <div class="col-md-6 col-xs-12">
+                         <button type="button" class="btn btn-dark w-100">Mua ngay</button>
+                    </div>
+                    <div class="col-md-6 col-xs-12">
+                        <button type="button" class="btn btn-outline-dark w-100">Them vao Gio hang</button>
+                    </div>
+                </div>
+                <hr>
+                <p class="font-weight-bold">Chính sách mua hàng</p>
+                <ul class="list-group list-group-flush vt-list-ft">
+                    <li class="list-group-item">
+                        <img src="~/images/change.png" class="pr-1" width="25" />
+                        Cras justo odio
+                    </li>
+                    <li class="list-group-item">
+                        <img src="~/images/delivery.png" class="pr-1" width="25" />
+                        Cras justo odio
+                    </li>
+                    <li class="list-group-item">
+                        <img src="~/images/commitment.png" class="pr-1" width="25" />
+                        Cras justo odio
+                    </li>
+                    <li class="list-group-item">
+                        <img src="~/images/change.png" class="pr-1" width="25" />
+                        Cras justo odio
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <hr class="vt-line">
+         <!--*****Detail*****-->  
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 pr-md-5" >
+                <h4 class="vt-title">Thông số sản phẩm</h4>
+                <table class="table table-striped">
+                    <tbody>
+                        <tr>
+                            <td>Tên SP</td>
+                            <td>Otto</td>
+                        </tr>
+                        <tr>
+                            <td>Kính</td>
+                            <td>Otto</td>
+                        </tr>
+                        <tr>
+                            <td>Viền</td>
+                            <td>Thornton</td>
+                        </tr>
+                        <tr>
+                            <td>Máy</td>
+                            <td>the Bird</td>
+                        </tr>
+                        <tr>
+                            <td>Xuất xứ</td>
+                            <td>Otto</td>
+                        </tr>
+                        <tr>
+                            <td>Thương hiệu</td>
+                            <td>Thornton</td>
+                        </tr>
+                        <tr>
+                            <td>Bảo hành</td>
+                            <td>the Bird</td>
+                        </tr>
+                        <tr>
+                            <td>Kích thước</td>
+                            <td>Otto</td>
+                        </tr>
+                        <tr>
+                            <td>Chống nước</td>
+                            <td>Thornton</td>
+                        </tr>
+                        <tr>
+                            <td>Chức năng</td>
+                            <td>the Bird</td>
+                        </tr>
+                        <tr>
+                            <td>Màu sắc/td>
+                            <td>Thornton</td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 pl-md-5"  >
+                <h4 class="vt-title">Giới thiệu</h4>
+                <h4>Độc đáo trong thiết kế, tinh xảo trong chế tác</h4>
+                <p>Thương hiệu đồng hồ Aviator đại diện cho những người trẻ nhiệt huyết, mạnh mẽ và máu lửa. Thiết kế tinh xảo cùng với độ bền bỉ rất cao luôn là những ưu điểm nổi bật giúp thương hiệu Aviator chiếm một chỗ đứng quan trọng trong lòng những tín đồ yêu thích đồng hồ.  Thương hiệu đồng hồ Aviator đại diện cho những người trẻ nhiệt huyết, mạnh mẽ và máu lửa. Thiết kế tinh xảo cùng với độ bền bỉ rất cao luôn là những ưu điểm nổi bật giúp thương hiệu Aviator chiếm một chỗ đứng quan trọng trong lòng những tín đồ yêu thích đồng hồ.  </p>
+            </div>        
+        </div>
+    </div>
+    <hr class="vt-line">
+        <!--***** Product Relation*****-->  
+    <div class="container">
+        <h4 class="vt-title text-center">Sản phảm liên quan</h4>
+        <div class="row">
+            <div class="col-lg-3 col-6">
+                <div class="vt-product">
+                    <a href="">
+                        <div class="vt-product-img">
+                            <img src="~/product/img_watch_1.jpg" alt="Card image cap">
+                            <img class="" src="~/images/sale.png" />
+                        </div>
+                        <div class="vt-product-content">
+                            <h5 class="vt-product-name">Đồng Hồ DW SP023</h5>
+                            <div class="vt-price">
+                                <p>899.999 VND</p>
+                                <del class="">1.099.999 VND</del>
+                                @* <del class="@p.showSale">@p.PricePromotion</del> *@
+                            </div>
+                        </div>
+                    </a>  
+                </div>
+            </div>
+            <div class="col-lg-3 col-6">
+                <div class="vt-product">
+                    <a href="">
+                        <div class="vt-product-img">
+                            <img src="~/product/img_watch_1.jpg" alt="Card image cap">
+                            <img class="" src="~/images/sale.png" />
+                        </div>
+                        <div class="vt-product-content">
+                            <h5 class="vt-product-name">Đồng Hồ DW SP023</h5>
+                            <div class="vt-price">
+                                <p>899.999 VND</p>
+                                <del class="">1.099.999 VND</del>
+                                @* <del class="@p.showSale">@p.PricePromotion</del> *@
+                            </div>
+                        </div>
+                    </a>  
+                </div>
+            </div>
+            <div class="col-lg-3 col-6">
+                <div class="vt-product">
+                    <a href="">
+                        <div class="vt-product-img">
+                            <img src="~/product/img_watch_1.jpg" alt="Card image cap">
+                            <img class="" src="~/images/sale.png" />
+                        </div>
+                        <div class="vt-product-content">
+                            <h5 class="vt-product-name">Đồng Hồ DW SP023</h5>
+                            <div class="vt-price">
+                                <p>899.999 VND</p>
+                                <del class="">1.099.999 VND</del>
+                                @* <del class="@p.showSale">@p.PricePromotion</del> *@
+                            </div>
+                        </div>
+                    </a>  
+                </div>
+            </div>
+            <div class="col-lg-3 col-6">
+                <div class="vt-product">
+                    <a href="">
+                        <div class="vt-product-img">
+                            <img src="~/product/img_watch_1.jpg" alt="Card image cap">
+                            <img class="" src="~/images/sale.png" />
+                        </div>
+                        <div class="vt-product-content">
+                            <h5 class="vt-product-name">Đồng Hồ DW SP023</h5>
+                            <div class="vt-price">
+                                <p>899.999 VND</p>
+                                <del class="">1.099.999 VND</del>
+                                @* <del class="@p.showSale">@p.PricePromotion</del> *@
+                            </div>
+                        </div>
+                    </a>  
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

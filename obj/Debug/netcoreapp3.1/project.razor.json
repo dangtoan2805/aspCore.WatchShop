@@ -1,5 +1,5 @@
 {
-  "FilePath": "c:\\Users\\Toan\\Desktop\\aspCore.WatchShop\\aspCore.WatchShop.csproj",
+  "FilePath": "c:\\Users\\Toan\\Documents\\SrcCode\\aspCore.WatchShop\\aspCore.WatchShop.csproj",
   "Configuration": {
     "ConfigurationName": "MVC-3.0",
     "LanguageVersion": "3.0",
@@ -20521,37 +20521,72 @@
   "RootNamespace": "aspCore.WatchShop",
   "Documents": [
     {
-      "FilePath": "c:\\Users\\Toan\\Desktop\\aspCore.WatchShop\\Views\\Shared\\_Layout.cshtml",
-      "TargetPath": "Views\\Shared\\_Layout.cshtml",
+      "FilePath": "c:\\Users\\Toan\\Documents\\SrcCode\\aspCore.WatchShop\\Views\\Product\\Discounts.cshtml",
+      "TargetPath": "Views\\Product\\Discounts.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\Toan\\Desktop\\aspCore.WatchShop\\Views\\_ViewStart.cshtml",
-      "TargetPath": "Views\\_ViewStart.cshtml",
+      "FilePath": "c:\\Users\\Toan\\Documents\\SrcCode\\aspCore.WatchShop\\Views\\Cart\\Index.cshtml",
+      "TargetPath": "Views\\Cart\\Index.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\Toan\\Desktop\\aspCore.WatchShop\\Views\\Home\\Privacy.cshtml",
-      "TargetPath": "Views\\Home\\Privacy.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\Toan\\Desktop\\aspCore.WatchShop\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
-      "TargetPath": "Views\\Shared\\_ValidationScriptsPartial.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\Toan\\Desktop\\aspCore.WatchShop\\Views\\Shared\\Error.cshtml",
+      "FilePath": "c:\\Users\\Toan\\Documents\\SrcCode\\aspCore.WatchShop\\Views\\Shared\\Error.cshtml",
       "TargetPath": "Views\\Shared\\Error.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\Toan\\Desktop\\aspCore.WatchShop\\Views\\_ViewImports.cshtml",
+      "FilePath": "c:\\Users\\Toan\\Documents\\SrcCode\\aspCore.WatchShop\\Views\\_ViewImports.cshtml",
       "TargetPath": "Views\\_ViewImports.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\Toan\\Desktop\\aspCore.WatchShop\\Views\\Home\\Index.cshtml",
+      "FilePath": "c:\\Users\\Toan\\Documents\\SrcCode\\aspCore.WatchShop\\Views\\Shared\\_Layout.cshtml",
+      "TargetPath": "Views\\Shared\\_Layout.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Toan\\Documents\\SrcCode\\aspCore.WatchShop\\Views\\Shared\\_Footer.cshtml",
+      "TargetPath": "Views\\Shared\\_Footer.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Toan\\Documents\\SrcCode\\aspCore.WatchShop\\Views\\Product\\ProductDetail.cshtml",
+      "TargetPath": "Views\\Product\\ProductDetail.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Toan\\Documents\\SrcCode\\aspCore.WatchShop\\Views\\Product\\Products.cshtml",
+      "TargetPath": "Views\\Product\\Products.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Toan\\Documents\\SrcCode\\aspCore.WatchShop\\Views\\Home\\Privacy.cshtml",
+      "TargetPath": "Views\\Home\\Privacy.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Toan\\Documents\\SrcCode\\aspCore.WatchShop\\Views\\Product\\Index.cshtml",
+      "TargetPath": "Views\\Product\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Toan\\Documents\\SrcCode\\aspCore.WatchShop\\Views\\Shared\\_HeaderNavbar.cshtml",
+      "TargetPath": "Views\\Shared\\_HeaderNavbar.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Toan\\Documents\\SrcCode\\aspCore.WatchShop\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
+      "TargetPath": "Views\\Shared\\_ValidationScriptsPartial.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Toan\\Documents\\SrcCode\\aspCore.WatchShop\\Views\\_ViewStart.cshtml",
+      "TargetPath": "Views\\_ViewStart.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Toan\\Documents\\SrcCode\\aspCore.WatchShop\\Views\\Home\\Index.cshtml",
       "TargetPath": "Views\\Home\\Index.cshtml",
       "FileKind": "mvc"
     }
