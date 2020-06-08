@@ -20521,13 +20521,33 @@
   "RootNamespace": "aspCore.WatchShop",
   "Documents": [
     {
+      "FilePath": "c:\\Users\\Toan\\Documents\\SrcCode\\aspCore.WatchShop\\Areas\\Admin\\Views\\Product\\Index.cshtml",
+      "TargetPath": "Areas\\Admin\\Views\\Product\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Toan\\Documents\\SrcCode\\aspCore.WatchShop\\Areas\\Admin\\Views\\Promotion\\Detail.cshtml",
+      "TargetPath": "Areas\\Admin\\Views\\Promotion\\Detail.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\Toan\\Documents\\SrcCode\\aspCore.WatchShop\\Views\\Product\\Discounts.cshtml",
       "TargetPath": "Views\\Product\\Discounts.cshtml",
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\Toan\\Documents\\SrcCode\\aspCore.WatchShop\\Areas\\Admin\\Views\\Customer\\Customers.cshtml",
+      "TargetPath": "Areas\\Admin\\Views\\Customer\\Customers.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\Toan\\Documents\\SrcCode\\aspCore.WatchShop\\Views\\Cart\\Index.cshtml",
       "TargetPath": "Views\\Cart\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Toan\\Documents\\SrcCode\\aspCore.WatchShop\\Areas\\Admin\\Views\\Promotion\\PromotionDetail.cshtml",
+      "TargetPath": "Areas\\Admin\\Views\\Promotion\\PromotionDetail.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -20561,8 +20581,33 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\Toan\\Documents\\SrcCode\\aspCore.WatchShop\\Areas\\Admin\\Views\\Privacy\\Index.cshtml",
+      "TargetPath": "Areas\\Admin\\Views\\Privacy\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Toan\\Documents\\SrcCode\\aspCore.WatchShop\\Areas\\Admin\\Views\\_ViewImports.cshtml",
+      "TargetPath": "Areas\\Admin\\Views\\_ViewImports.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Toan\\Documents\\SrcCode\\aspCore.WatchShop\\Areas\\Admin\\Views\\Product\\ProductDetail.cshtml",
+      "TargetPath": "Areas\\Admin\\Views\\Product\\ProductDetail.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\Toan\\Documents\\SrcCode\\aspCore.WatchShop\\Views\\Home\\Privacy.cshtml",
       "TargetPath": "Views\\Home\\Privacy.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Toan\\Documents\\SrcCode\\aspCore.WatchShop\\Areas\\Admin\\Views\\Order\\Index.cshtml",
+      "TargetPath": "Areas\\Admin\\Views\\Order\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Toan\\Documents\\SrcCode\\aspCore.WatchShop\\Areas\\Admin\\Views\\Config\\Index.cshtml",
+      "TargetPath": "Areas\\Admin\\Views\\Config\\Index.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -20586,8 +20631,48 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\Toan\\Documents\\SrcCode\\aspCore.WatchShop\\Areas\\Admin\\Views\\_ViewStart.cshtml",
+      "TargetPath": "Areas\\Admin\\Views\\_ViewStart.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Toan\\Documents\\SrcCode\\aspCore.WatchShop\\Areas\\Admin\\Views\\Shared\\_FooterAdmin.cshtml",
+      "TargetPath": "Areas\\Admin\\Views\\Shared\\_FooterAdmin.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Toan\\Documents\\SrcCode\\aspCore.WatchShop\\Areas\\Admin\\Views\\Shared\\_HeaderAdmin.cshtml",
+      "TargetPath": "Areas\\Admin\\Views\\Shared\\_HeaderAdmin.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\Toan\\Documents\\SrcCode\\aspCore.WatchShop\\Views\\Home\\Index.cshtml",
       "TargetPath": "Views\\Home\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Toan\\Documents\\SrcCode\\aspCore.WatchShop\\Areas\\Admin\\Views\\Home\\Index.cshtml",
+      "TargetPath": "Areas\\Admin\\Views\\Home\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Toan\\Documents\\SrcCode\\aspCore.WatchShop\\Areas\\Admin\\Views\\Promotion\\Index.cshtml",
+      "TargetPath": "Areas\\Admin\\Views\\Promotion\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Toan\\Documents\\SrcCode\\aspCore.WatchShop\\Areas\\Admin\\Views\\Shared\\_LayoutAdmin.cshtml",
+      "TargetPath": "Areas\\Admin\\Views\\Shared\\_LayoutAdmin.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Toan\\Documents\\SrcCode\\aspCore.WatchShop\\Areas\\Admin\\Views\\Shared\\_SideBar.cshtml",
+      "TargetPath": "Areas\\Admin\\Views\\Shared\\_SideBar.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Toan\\Documents\\SrcCode\\aspCore.WatchShop\\Areas\\Admin\\Views\\Customer\\Index.cshtml",
+      "TargetPath": "Areas\\Admin\\Views\\Customer\\Index.cshtml",
       "FileKind": "mvc"
     }
   ],

@@ -1,0 +1,133 @@
+@{
+    ViewBag.Title="PromotionDetail";
+}
+<div class="content-wrapper">
+    <div class="content">
+        <div class="row">
+            <div class="col-md-6">
+                <h4 class="pb-3">Thông tin sản phẩm</h4>
+                <form>
+                    <div class="form-row">
+                        <div class="col-md-12 mb-3">
+                            <label for="validationServer01">Tên Chương trình</label>
+                            <input type="text" class="form-control" id="validationServer01" placeholder="First name" value="Md" required>
+                            <div class="valid-feedback">
+                                Looks good!
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col-md-6 mb-3">
+                            <label for="validationServer02">Giá bán</label>
+                        </div>
+                        <div class="col-md-6 mb-3 text-right">
+                            <label class="switch switch-icon switch-primary switch-pill form-control-label">
+                                <input type="checkbox" class="switch-input form-check-input" value="on" checked>
+                                <span class="switch-label"></span>
+                                <span class="switch-handle"></span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col-md-6 mb-3">
+                            <label for="exampleFormControlSelect3">Example select</label>
+                            <input type="date" class="form-control" id="validationServer02" placeholder="Last name" value="Rahad" required>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="exampleFormControlSelect3">Example select</label>
+                            <input type="date" class="form-control" id="validationServer02" placeholder="Last name" value="Rahad" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col-md-12 mb-3">
+                            <label for="validationServer01">Mức giảm</label>
+                            <input type="number" class="form-control" id="validationServer01" placeholder="First name" value="Md" required>
+                            <div class="valid-feedback">
+                                Looks good!
+                            </div>
+                        </div>                        
+                    </div>                
+                    <div class="pt-3">
+                        <button class="btn btn-primary w-25" type="submit" >Lưu</button>
+                        <button class="btn btn-danger w-25" type="submit">Xoá Sản phẩm</button>
+                    </div>
+                </form>
+            </div>
+            <div class="col-md-6 px-5">
+                <h4 class="pb-3">Danh sachs sản phẩm khuyến mãi</h4>
+                <div class="row align-items-center">
+                     <div class="col-md-4 mb-3">
+                        <label for="exampleFormControlSelect3">Example select</label>
+                     </div>
+                     <div class="col-md-4 mb-3" >
+                        <select
+                          class="form-control"
+                          id="exampleFormControlSelect3">
+                          <option>1</option>
+                          <option>2</option>
+                          <option>3</option>
+                          <option>4</option>
+                          <option>5</option>
+                        </select>
+                     </div>   
+                     <div class="col-md-2 mb-3">
+                            <label for="validationServer02">Giá bán</label>
+                        </div>
+                        <div class="col-md-2 mb-3 text-right">
+                            <label class="switch switch-icon switch-primary switch-pill form-control-label">
+                                <input type="checkbox" class="switch-input form-check-input" value="on" checked>
+                                <span class="switch-label"></span>
+                                <span class="switch-handle"></span>
+                            </label>
+                        </div>
+                </div>
+                               
+                <table class="table card-table table-responsive table-responsive-large w-100">
+                    <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th class="d-none d-lg-table-cell"> Hình ảnh</th>
+                        <th >Tên SP</th>
+                        <th>Phân loại</th>
+                        <th>Giá bán</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td >24541</td>
+                        <td class="d-none d-lg-table-cell">
+                            <div class="vt-img" style="width:50px">
+                                <img src="~/product/img_watch_1.jpg">
+                            </div>
+                        </td>
+                        <td >
+                            <a class="text-dark" href=""> Hat Black Suits</a>
+                        </td>
+                        <td >1 Unit</td>
+                        <td class="d-none d-lg-table-cell">$325</td>
+                        <td class="d-none d-lg-table-cell">
+                            <a href="#" class="btn mdi mdi-delete"></a>
+                        </td>
+                    </tr>    
+                    <tr>
+                        <td >24541</td>
+                        <td class="d-none d-lg-table-cell">
+                            <div class="vt-img" style="width:50px">
+                                <img src="~/product/img_watch_1.jpg">
+                            </div>
+                        </td>
+                        <td >
+                            <a class="text-dark" href=""> Hat Black Suits</a>
+                        </td>
+                        <td >1 Unit</td>
+                        <td class="d-none d-lg-table-cell">$325</td>
+                        <td class="d-none d-lg-table-cell">
+                            <a href="#" class="btn mdi mdi-delete"></a>
+                        </td>
+                    </tr>     
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

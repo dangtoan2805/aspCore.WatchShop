@@ -1,0 +1,137 @@
+@{
+    ViewBag.Title="Products";
+}
+<div class="content-wrapper">
+    <div class="content">
+        <div class="row">
+            <div class="col-12">
+            <!-- Product Table -->
+                <div class="card card-table-border-none" id="recent-orders">
+                    <div class="card-header justify-content-between">
+                        <h2>Sản phẩm</h2>
+                        <div class="ml-auto d-flex ">
+                            <p>Số lượng: 100</p>   
+                            <a href="#" class="btn btn-danger py-3 text-uppercase">Add</a>
+                        </div>
+                    </div>
+                    <div class="card-body pt-0 pb-5">
+                        <table class="table card-table table-responsive table-responsive-large" style="width:100%">
+                            <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th class="d-none d-lg-table-cell"> Hình ảnh</th>
+                                <th >Tên SP</th>
+                                <th>
+                                    <div class="dropdown d-inline-block">
+                                        <span class="btn-square btn-outline-secondary vt-none-hover border-0 dropdown-toggle" 
+                                            type="button" id="dropdownStatus" 
+                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-display="static">
+                                            Giá
+                                        </span>
+                                        <div class="dropdown-menu" aria-labelledby="dropdownStatus">
+                                            <a class="dropdown-item" href="#">Tăng dần</a>
+                                            <a class="dropdown-item" href="#">Giảm dần</a>
+                                        </div>
+                                    </div> 
+                                </th>
+                                <th class="d-none d-lg-table-cell">
+                                    <div class="dropdown d-inline-block">
+                                        <span class="btn-square btn-outline-secondary vt-none-hover border-0 dropdown-toggle" 
+                                            type="button" id="dropdownStatus" 
+                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-display="static">
+                                            Phân loại
+                                        </span>
+                                        <div class="dropdown-menu" aria-labelledby="dropdownStatus">
+                                            <a class="dropdown-item" href="#">Action</a>
+                                            <a class="dropdown-item" href="#">Another action</a>
+                                            <a class="dropdown-item" href="#">Something else here</a>
+                                        </div>
+                                    </div> 
+                                </th>
+                                <th class="d-none d-lg-table-cell">
+                                     <div class="dropdown d-inline-block">
+                                        <span class="btn-square btn-outline-secondary vt-none-hover border-0 dropdown-toggle" 
+                                            type="button" id="dropdownStatus" 
+                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-display="static">
+                                            Loại Dây
+                                        </span>
+                                        <div class="dropdown-menu" aria-labelledby="dropdownStatus">
+                                            <a class="dropdown-item" href="#">Action</a>
+                                            <a class="dropdown-item" href="#">Another action</a>
+                                            <a class="dropdown-item" href="#">Something else here</a>
+                                        </div>
+                                    </div> 
+                                </th>
+                                <th>
+                                    <div class="dropdown d-inline-block">
+                                        <span class="btn-square btn-outline-secondary vt-none-hover border-0 dropdown-toggle" 
+                                            type="button" id="dropdownStatus" 
+                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-display="static">
+                                            Đã bán
+                                        </span>
+                                        <div class="dropdown-menu" aria-labelledby="dropdownStatus">
+                                            <a class="dropdown-item" href="#">Tăng dần</a>
+                                            <a class="dropdown-item" href="#">Giảm dần</a>
+                                        </div>
+                                    </div> 
+                                </th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td >24541</td>
+                                <td class="d-none d-lg-table-cell">
+                                    <div class="vt-img" style="width:50px">
+                                        <img src="~/product/img_watch_1.jpg">
+                                    </div>
+                                </td>
+                                <td >
+                                    <a class="text-dark" href=""> Hat Black Suits</a>
+                                </td>
+                                <td >1 Unit</td>
+                                <td class="d-none d-lg-table-cell">Nov 18, 2018</td>
+                                <td class="d-none d-lg-table-cell">$325</td>
+                                <td>25</td>
+                                <td class="d-none d-lg-table-cell">
+                                    <label class="switch switch-icon switch-primary switch-pill form-control-label">
+                                        <input type="checkbox" class="switch-input form-check-input" value="on" checked>
+                                        <span class="switch-label"></span>
+                                        <span class="switch-handle"></span>
+                                    </label>
+                                </td>
+                               
+                            </tr>    
+                             <tr>
+                                <td >24541</td>
+                                <td class="d-none d-lg-table-cell">
+                                    <div class="vt-img" style="width:50px">
+                                        <img src="~/product/img_watch_1.jpg">
+                                    </div>
+                                </td>
+                                <td >
+                                    <a class="text-dark" href=""> Hat Black Suits</a>
+                                </td>
+                                <td >1 Unit</td>
+                                <td class="d-none d-lg-table-cell">Nov 18, 2018</td>
+                                <td class="d-none d-lg-table-cell">$325</td>
+                                <td>25</td>
+                                <td class="d-none d-lg-table-cell">
+                                    <label class="switch switch-icon switch-primary switch-pill form-control-label">
+                                        <input type="checkbox" class="switch-input form-check-input" value="on" checked>
+                                        <span class="switch-label"></span>
+                                        <span class="switch-handle"></span>
+                                    </label>
+                                </td>
+                                
+                            </tr>    
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="card-footer bg-white py-3 text-center">
+                        <a href="#" class="btn-link py-3 text-uppercase">More</a>
+                    </div>
+                </div>
+            </div>
+        </div>       
+    </div>
+</div>

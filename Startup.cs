@@ -53,8 +53,12 @@ namespace aspCore.WatchShop
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
+                    name: "Area",
+                    pattern: "{area:exists}/{controller=Promotion}/{action=Detail}/{id?}");
+
+                endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Cart}/{action=Index}/{id?}");
+                    pattern: "{controller=Home}/{action=Index}/{id?}");
             });
         }
     }

@@ -7,6 +7,15 @@
   width: 100% !important;
 }
 
+.vt-big-icon {
+  font-size: 1.5rem;
+}
+
+.vt-none-hover {
+  background-color: white !important;
+  color: inherit !important;
+}
+
 .vt-breadcrumb {
   display: flex;
   flex-wrap: wrap;
