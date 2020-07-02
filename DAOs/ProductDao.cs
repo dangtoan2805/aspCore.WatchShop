@@ -16,15 +16,38 @@ namespace aspCore.WatchShop.DAOs
 {
     public class ProductDao
     {
-        private int _itemPage = 16;
-        private static int _pageCount = 0;
-        private static int _itemCount = 0;
         private watchContext _db = null;
 
         public ProductDao(watchContext context)
         {
             _db = context;
         }
+
+        public List<Category> GetCategories()
+        {
+            return new List<Category>(){
+                new Category(){ID=0,Name="Nam"},
+                new Category(){ID=1,Name="Nu"},
+                new Category(){ID=2,Name="Vòng tay"}};
+        }
+
+        public List<TypeWire> GetTypeWires()
+        {
+            return new List<TypeWire>(){
+                new TypeWire(){ID=0,Name="Dây da"},
+                new TypeWire(){ID=1,Name="Dây kim loại"},
+                new TypeWire(){ID=2,Name="Dây nhựa"},
+                new TypeWire(){ID=2,Name="Dây cao su"}};
+        }
+
+        public List<ProductVM> GetProducts()
+        {
+            List<ProductVM> ls = new List<ProductVM>();
+            for (int i = 0; i < 30; i++)
+                ls.Add(new ProductVM() { ID = i });
+            return ls;
+        }
+
 
         // public async Task CountItemsOf(int instan, int key, int wireID)
         // {
@@ -173,7 +196,7 @@ namespace aspCore.WatchShop.DAOs
         //                     .AsNoTracking()
         //                     .FirstAsync();      
         //     return new ProductVM(p);
-                                                     
+
         // }
 
         // public async Task<List<ProductVM>> GetProductRange(int instan, int key,int wireID, int sort,int pageNumber)

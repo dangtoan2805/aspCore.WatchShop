@@ -1,4 +1,6 @@
-﻿namespace aspCore.WatchShop.Entities
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+namespace aspCore.WatchShop.Entities
 {
     public class OrderDetail
     {
@@ -6,7 +8,7 @@
         public int ProductID { get; set; }
         public byte Quantity { get; set; }
         public int Price { get; set; }
-        public int PricePromotion { get; set; }
+        public decimal Promotion { get; set; }
         //Nav property
         public Order Order { get; set; }
         public Product Product { get; set; }

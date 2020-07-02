@@ -10,14 +10,16 @@ namespace aspCore.WatchShop.Entities
         public int ID { get; set; }
         [MaxLength(50)]
         public string Name { get; set; }
-        public DateTime FromDate { get; set; }
-        public DateTime ToDate { get; set; }
+        public DateTime? FromDate { get; set; }
+        public DateTime? ToDate { get; set; }
         public bool? isAlways { get; set; }
         public bool? Status { get; set; }
         public decimal Discount { get; set; }
         public int Amount { get; set; }
+        public bool? TypePromotion { get; set; }
         //Nav property
-        public List<PromotionDetail> PromotionDetail {get;set;}        
+        public List<PromotionDetail> PromotionDetail { get; set; }
+        public BillPromotion BillPromotion { get; set; }
 
     }
 }

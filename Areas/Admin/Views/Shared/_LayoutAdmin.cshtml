@@ -5,24 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - watchShop.WebApp</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+    <link href="~/assets/img/favicon.png" rel="shortcut icon" />
     <!-- GOOGLE FONTS -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500|Poppins:400,500,600,700|Roboto:400,500" rel="stylesheet" />
     <link href="https://cdn.materialdesignicons.com/4.4.95/css/materialdesignicons.min.css" rel="stylesheet" />
     <!-- PLUGINS CSS STYLE -->
-    <link href="assets/plugins/nprogress/nprogress.css" rel="stylesheet" />
     <!-- No Extra plugin used -->
-    <link href="assets/plugins/toastr/toastr.min.css" rel="stylesheet" />
+    @* <link href="~/assets/plugins/toastr/toastr.min.css" rel="stylesheet" /> *@
     <!-- SLEEK CSS -->
-    <link id="sleek-css" rel="stylesheet" href="assets/css/sleek.css" />
-    <!-- FAVICON -->
-    <link href="assets/img/favicon.png" rel="shortcut icon" />
-    <link href="css/template.css" rel="stylesheet" />
-    <script src="assets/plugins/nprogress/nprogress.js"></script>
-    @RenderSection("Css", false)
+    <link href="~/lib/sleek/sleek.min.css" id="sleek-css" rel="stylesheet"  />
+    <!-- PRELOADED CSS -->
+    <link href="~/css/preloaded.css" rel="stylesheet" />
+    <!-- MAIN CSS -->
+    @RenderSection("css", false)
+    <link href="~/css/template.css" rel="stylesheet" />
 </head>
-<body  class="header-fixed sidebar-fixed sidebar-dark header-light" id="body">
+<body  class="header-fixed sidebar-fixed sidebar-dark header-light" id="body" >
     <!--***** Preloaded *****-->
-    @* <div id="loading">
+    <div id="loading" style="opacity: 0.7;">
         <div id="loading-center">
             <div id="loading-center-absolute">
                 <div class="object" id="object_one"></div>
@@ -36,15 +36,13 @@
                 <div class="object" id="object_big"></div>
             </div>
         </div>
-	</div> *@
-
-    <div id="toaster"></div>
-    <div class="wrapper">
+	</div>
+    <div class="wrapper" >
         <partial name="_SideBar" />
         <div class="page-wrapper">
         <!--***** Header*****-->
             <partial name="_HeaderAdmin"/>
-        <!--***** Main*****-->
+        <!--***** Main*****-->  
             @RenderBody()
         <!--***** Footer *****-->
             <partial name="_FooterAdmin" />
@@ -52,240 +50,11 @@
     </div>
     <!--***** Scripts *****-->
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/plugins/jekyll-search.min.js"></script>
-    <script src="assets/plugins/charts/Chart.min.js"></script>
-    <script src="assets/plugins/toastr/toastr.min.js"></script>
-    @* <script src="assets/js/sleek.bundle.js"></script> *@
-    @* <script>
-        $(document).ready(function () {
-	  /*======== 2. MOBILE OVERLAY ========*/
-        if ($(window).width() < 768) {
-            $(".sidebar-toggle").on("click", function () {
-            $("body").css("overflow", "hidden");
-            $('body').prepend('<div class="mobile-sticky-body-overlay"></div>');
-            });
-
-            $(document).on("click", '.mobile-sticky-body-overlay', function (e) {
-            $(this).remove();
-            $("#body").removeClass("sidebar-mobile-in").addClass("sidebar-mobile-out");
-            $("body").css("overflow", "auto");
-            });
-        }
-        /*======== 4. SIDEBAR TOGGLE FOR MOBILE ========*/
-        if ($(window).width() < 768) {
-            $(document).on("click", ".sidebar-toggle", function (e) {
-            e.preventDefault();
-            var min = "sidebar-mobile-in",
-                min_out = "sidebar-mobile-out",
-                body = "#body";
-            $(body).hasClass(min)
-                ? $(body)
-                .removeClass(min)
-                .addClass(min_out)
-                : $(body)
-                .addClass(min)
-                .removeClass(min_out);
-            });
-        }
-        /*======== 5. SIDEBAR TOGGLE FOR VARIOUS SIDEBAR LAYOUT ========*/
-        var body = $("#body");
-        if ($(window).width() >= 768) {
-
-            if (typeof window.isMinified === "undefined") {
-            window.isMinified = false;
-            }
-            if (typeof window.isCollapsed === "undefined") {
-            window.isCollapsed = false;
-            }
-
-            $("#sidebar-toggler").on("click", function () {
-            if (
-                body.hasClass("sidebar-fixed-offcanvas") ||
-                body.hasClass("sidebar-static-offcanvas")
-            ) {
-                $(this)
-                .addClass("sidebar-offcanvas-toggle")
-                .removeClass("sidebar-toggle");
-                if (window.isCollapsed === false) {
-                body.addClass("sidebar-collapse");
-                window.isCollapsed = true;
-                window.isMinified = false;
-                } else {
-                body.removeClass("sidebar-collapse");
-                body.addClass("sidebar-collapse-out");
-                setTimeout(function () {
-                    body.removeClass("sidebar-collapse-out");
-                }, 300);
-                window.isCollapsed = false;
-                }
-            }
-
-            if (
-                body.hasClass("sidebar-fixed") ||
-                body.hasClass("sidebar-static")
-            ) {
-                $(this)
-                .addClass("sidebar-toggle")
-                .removeClass("sidebar-offcanvas-toggle");
-                if (window.isMinified === false) {
-                body
-                    .removeClass("sidebar-collapse sidebar-minified-out")
-                    .addClass("sidebar-minified");
-                window.isMinified = true;
-                window.isCollapsed = false;
-                } else {
-                body.removeClass("sidebar-minified");
-                body.addClass("sidebar-minified-out");
-                window.isMinified = false;
-                }
-            }
-            });
-        }
-
-        if ($(window).width() >= 768 && $(window).width() < 992) {
-            if (
-            body.hasClass("sidebar-fixed") ||
-            body.hasClass("sidebar-static")
-            ) {
-            body
-                .removeClass("sidebar-collapse sidebar-minified-out")
-                .addClass("sidebar-minified");
-            window.isMinified = true;
-            }
-        }
-         /*======== Chart========*/
-          var ctx = document.getElementById("linechart");
-	  if (ctx !== null) {
-	    var chart = new Chart(ctx, {
-	      // The type of chart we want to create
-	      type: "line",
-
-	      // The data for our dataset
-	      data: {
-	        labels: [
-	          "Jan",
-	          "Feb",
-	          "Mar",
-	          "Apr",
-	          "May",
-	          "Jun",
-	          "Jul",
-	          "Aug",
-	          "Sep",
-	          "Oct",
-	          "Nov",
-	          "Dec"
-	        ],
-	        datasets: [
-	          {
-	            label: "",
-	            backgroundColor: "transparent",
-	            borderColor: "rgb(82, 136, 255)",
-	            data: [
-	              100,
-	              11000,
-	              10000,
-	              14000,
-	              11000,
-	              17000,
-	              14500,
-	              18000,
-	              5000,
-	              23000,
-	              14000,
-	              19000
-	            ],
-	            lineTension: 0.3,
-	            pointRadius: 5,
-	            pointBackgroundColor: "rgba(255,255,255,1)",
-	            pointHoverBackgroundColor: "rgba(255,255,255,1)",
-	            pointBorderWidth: 2,
-	            pointHoverRadius: 8,
-	            pointHoverBorderWidth: 1
-	          }
-	        ]
-	      },
-
-	      // Configuration options go here
-	      options: {
-	        responsive: true,
-	        maintainAspectRatio: false,
-	        legend: {
-	          display: false
-	        },
-	        layout: {
-	          padding: {
-	            right: 10
-	          }
-	        },
-	        scales: {
-	          xAxes: [
-	            {
-	              gridLines: {
-	                display: false
-	              }
-	            }
-	          ],
-	          yAxes: [
-	            {
-	              gridLines: {
-	                display: true,
-	                color: "#eee",
-	                zeroLineColor: "#eee",
-	              },
-	              ticks: {
-	                callback: function (value) {
-	                  var ranges = [
-	                    { divider: 1e6, suffix: "M" },
-	                    { divider: 1e4, suffix: "k" }
-	                  ];
-	                  function formatNumber(n) {
-	                    for (var i = 0; i < ranges.length; i++) {
-	                      if (n >= ranges[i].divider) {
-	                        return (
-	                          (n / ranges[i].divider).toString() + ranges[i].suffix
-	                        );
-	                      }
-	                    }
-	                    return n;
-	                  }
-	                  return formatNumber(value);
-	                }
-	              }
-	            }
-	          ]
-	        },
-	        tooltips: {
-	          callbacks: {
-	            title: function (tooltipItem, data) {
-	              return data["labels"][tooltipItem[0]["index"]];
-	            },
-	            label: function (tooltipItem, data) {
-	              return "$" + data["datasets"][0]["data"][tooltipItem["index"]];
-	            }
-	          },
-	          responsive: true,
-	          intersect: false,
-	          enabled: true,
-	          titleFontColor: "#888",
-	          bodyFontColor: "#555",
-	          titleFontSize: 12,
-	          bodyFontSize: 18,
-	          backgroundColor: "rgba(256,256,256,0.95)",
-	          xPadding: 20,
-	          yPadding: 10,
-	          displayColors: false,
-	          borderColor: "rgba(220, 220, 220, 0.9)",
-	          borderWidth: 2,
-	          caretSize: 10,
-	          caretPadding: 15
-	        }
-	      }
-	    });
-	  }
-	});
-    </script>  *@
-    @RenderSection("Scripts", false)
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/lib/jekyll-search/jekyll-search.min.js"></script>
+    <script src="~/lib/sleek/sleek.js"></script>
+    @* <script src="~/assets/plugins/toastr/toastr.min.js"></script> *@
+    <script src="~/js/admin/main-admin.js"> </script>
+    @RenderSection("scripts", false)
 </body>
 </html>

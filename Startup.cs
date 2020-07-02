@@ -11,6 +11,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
+
 namespace aspCore.WatchShop
 {
     public class Startup
@@ -25,6 +26,7 @@ namespace aspCore.WatchShop
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddMemoryCache();
             services.AddControllersWithViews();
             services.AddDbContext<watchContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("default")));
@@ -48,13 +50,17 @@ namespace aspCore.WatchShop
 
             app.UseRouting();
 
+
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
+                    name: "Test",
+                    pattern: "{area=Admin}/{controller=Home}/{action=Index}/{id?}");
+                endpoints.MapControllerRoute(
                     name: "Area",
-                    pattern: "{area:exists}/{controller=Promotion}/{action=Detail}/{id?}");
+                    pattern: "{area:exists}/{controller}/{action=Index}/{id?}");
 
                 endpoints.MapControllerRoute(
                     name: "default",

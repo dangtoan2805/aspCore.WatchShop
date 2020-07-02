@@ -3,6 +3,11 @@
   overflow-x: hidden !important;
 }
 
+body{
+  padding-right: 0 !important;
+}
+
+
 .vt-img img {
   width: 100% !important;
 }
@@ -219,4 +224,69 @@
     padding-left: 10rem !important;
     padding-right: 10rem !important;
   }
+}
+
+
+/****************** Custom Admin *********************/
+.vt-input-date{
+  padding: .6rem .5rem !important;
+}
+
+.vt-table-report{
+  height: 445px;
+  overflow-y: auto;
+}
+
+#chart-content{
+  height: 370px;
+}
+
+.vt-daterange{
+  cursor:pointer;
+  width: 100%;
+}
+
+.vt-d-none{
+  display: none !important;
+}
+
+@media (min-width: 992px) {
+  .vt-daterange{
+    width: max-content;
+  }
+  .vt-d-none{
+    display: block !important;
+  }
+}
+
+
+.vt-modal-open{
+  cursor: pointer;
+}
+
+.vt-dropdown-w{
+  width: 120px;
+}
+
+.pagination, .page-link{
+  height: max-content !important;
+}
+
+.vt-custom > .vt-switch-sm{
+  width: 44px !important;
+  height: 22px !important;
+  margin-bottom: 0 !important;
+}
+
+.vt-custom > .vt-switch-sm > .switch-handle{
+  width: 18px !important;
+  height: 18px !important;
+  top: 2px !important;
+}
+.vt-custom > .switch.switch-icon .switch-input:checked ~ .switch-handle{
+  left: 24px;
+}
+
+.vt-item{
+  cursor: pointer;
 }

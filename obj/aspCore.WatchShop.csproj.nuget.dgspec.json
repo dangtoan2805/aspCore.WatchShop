@@ -1,23 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Toan\\Documents\\SrcCode\\aspCore.WatchShop\\aspCore.WatchShop.csproj": {}
+    "C:\\Users\\TOAN\\Documents\\SrcCode\\aspCore.WatchShop\\aspCore.WatchShop.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Toan\\Documents\\SrcCode\\aspCore.WatchShop\\aspCore.WatchShop.csproj": {
+    "C:\\Users\\TOAN\\Documents\\SrcCode\\aspCore.WatchShop\\aspCore.WatchShop.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Toan\\Documents\\SrcCode\\aspCore.WatchShop\\aspCore.WatchShop.csproj",
+        "projectUniqueName": "C:\\Users\\TOAN\\Documents\\SrcCode\\aspCore.WatchShop\\aspCore.WatchShop.csproj",
         "projectName": "aspCore.WatchShop",
-        "projectPath": "C:\\Users\\Toan\\Documents\\SrcCode\\aspCore.WatchShop\\aspCore.WatchShop.csproj",
-        "packagesPath": "C:\\Users\\Toan\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Toan\\Documents\\SrcCode\\aspCore.WatchShop\\obj\\",
+        "projectPath": "C:\\Users\\TOAN\\Documents\\SrcCode\\aspCore.WatchShop\\aspCore.WatchShop.csproj",
+        "packagesPath": "C:\\Users\\TOAN\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\TOAN\\Documents\\SrcCode\\aspCore.WatchShop\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Toan\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\TOAN\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -41,15 +38,37 @@
       "frameworks": {
         "netcoreapp3.1": {
           "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[9.0.0, )"
+            },
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[3.1.5, )"
+            },
+            "Microsoft.AspNetCore.Identity.UI": {
+              "target": "Package",
+              "version": "[3.1.5, )"
+            },
             "Microsoft.EntityFrameworkCore.Design": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[3.1.4, )"
+              "version": "[3.1.5, )"
             },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
               "version": "[3.1.4, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[3.1.5, )"
+            },
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "target": "Package",
+              "version": "[3.1.3, )"
             }
           },
           "imports": [
@@ -70,7 +89,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.300\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.301\\RuntimeIdentifierGraph.json"
         }
       }
     }

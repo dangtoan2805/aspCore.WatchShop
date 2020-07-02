@@ -15,9 +15,25 @@ namespace aspCore.WatchShop.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "3.1.4")
+                .HasAnnotation("ProductVersion", "3.1.5")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+            modelBuilder.Entity("aspCore.WatchShop.Entities.BillPromotion", b =>
+                {
+                    b.Property<int>("PromotionID")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("MinTotal")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("NumberProduct")
+                        .HasColumnType("int");
+
+                    b.HasKey("PromotionID");
+
+                    b.ToTable("BillPromotions");
+                });
 
             modelBuilder.Entity("aspCore.WatchShop.Entities.Category", b =>
                 {
@@ -35,61 +51,6 @@ namespace aspCore.WatchShop.Migrations
                     b.ToTable("Categories");
                 });
 
-            modelBuilder.Entity("aspCore.WatchShop.Entities.Config", b =>
-                {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Desription")
-                        .HasColumnType("nvarchar(500)")
-                        .HasMaxLength(500);
-
-                    b.Property<string>("Logo")
-                        .HasColumnType("nvarchar(30)")
-                        .HasMaxLength(30);
-
-                    b.Property<string>("NameShop")
-                        .HasColumnType("nvarchar(100)")
-                        .HasMaxLength(100);
-
-                    b.Property<string>("TitleWeb")
-                        .HasColumnType("nvarchar(100)")
-                        .HasMaxLength(100);
-
-                    b.HasKey("ID");
-
-                    b.ToTable("Configs");
-                });
-
-            modelBuilder.Entity("aspCore.WatchShop.Entities.Contact", b =>
-                {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Address")
-                        .HasColumnType("nvarchar(150)")
-                        .HasMaxLength(150);
-
-                    b.Property<string>("Email")
-                        .HasColumnType("nvarchar(50)")
-                        .HasMaxLength(50);
-
-                    b.Property<string>("LinkFB")
-                        .HasColumnType("nvarchar(50)")
-                        .HasMaxLength(50);
-
-                    b.Property<int>("Phone")
-                        .HasColumnType("int");
-
-                    b.HasKey("ID");
-
-                    b.ToTable("Contacts");
-                });
-
             modelBuilder.Entity("aspCore.WatchShop.Entities.Customer", b =>
                 {
                     b.Property<int>("ID")
@@ -105,8 +66,9 @@ namespace aspCore.WatchShop.Migrations
                         .HasColumnType("nvarchar(50)")
                         .HasMaxLength(50);
 
-                    b.Property<int>("Phone")
-                        .HasColumnType("int");
+                    b.Property<string>("Phone")
+                        .HasColumnType("nvarchar(16)")
+                        .HasMaxLength(16);
 
                     b.HasKey("ID");
 
@@ -131,25 +93,47 @@ namespace aspCore.WatchShop.Migrations
                     b.ToTable("Fees");
                 });
 
-            modelBuilder.Entity("aspCore.WatchShop.Entities.Image", b =>
+            modelBuilder.Entity("aspCore.WatchShop.Entities.Info", b =>
                 {
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("ProductID")
-                        .HasColumnType("int");
+                    b.Property<string>("Address")
+                        .HasColumnType("nvarchar(150)")
+                        .HasMaxLength(150);
 
-                    b.Property<string>("Src")
+                    b.Property<string>("Desription")
+                        .HasColumnType("nvarchar(500)")
+                        .HasMaxLength(500);
+
+                    b.Property<string>("Email")
+                        .HasColumnType("nvarchar(50)")
+                        .HasMaxLength(50);
+
+                    b.Property<string>("LinkFB")
+                        .HasColumnType("nvarchar(50)")
+                        .HasMaxLength(50);
+
+                    b.Property<string>("Logo")
                         .HasColumnType("nvarchar(30)")
                         .HasMaxLength(30);
 
+                    b.Property<string>("NameShop")
+                        .HasColumnType("nvarchar(100)")
+                        .HasMaxLength(100);
+
+                    b.Property<int>("Phone")
+                        .HasColumnType("int");
+
+                    b.Property<string>("TitleWeb")
+                        .HasColumnType("nvarchar(100)")
+                        .HasMaxLength(100);
+
                     b.HasKey("ID");
 
-                    b.HasIndex("ProductID");
-
-                    b.ToTable("Images");
+                    b.ToTable("Infos");
                 });
 
             modelBuilder.Entity("aspCore.WatchShop.Entities.Order", b =>
@@ -160,13 +144,15 @@ namespace aspCore.WatchShop.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<decimal>("BillPromotion")
-                        .HasColumnType("decimal(2,2)");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("decimal(2,2)")
+                        .HasDefaultValue(0m);
 
                     b.Property<int>("CustomerID")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("DateCreated")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("smalldatetime");
 
                     b.Property<string>("Note")
                         .HasColumnType("nvarchar(150)")
@@ -178,14 +164,21 @@ namespace aspCore.WatchShop.Migrations
                         .HasDefaultValue(0);
 
                     b.Property<decimal>("Tax")
-                        .HasColumnType("decimal(2,2)");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("decimal(2,2)")
+                        .HasDefaultValue(0m);
 
                     b.Property<int>("TransportFee")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("UserID")
                         .HasColumnType("int");
 
                     b.HasKey("ID");
 
                     b.HasIndex("CustomerID");
+
+                    b.HasIndex("UserID");
 
                     b.ToTable("Orders");
                 });
@@ -201,16 +194,15 @@ namespace aspCore.WatchShop.Migrations
                     b.Property<int>("Price")
                         .HasColumnType("int");
 
-                    b.Property<int>("PricePromotion")
-                        .HasColumnType("int");
+                    b.Property<decimal>("Promotion")
+                        .HasColumnType("decimal(2,2)");
 
                     b.Property<byte>("Quantity")
                         .HasColumnType("tinyint");
 
                     b.HasKey("OrderID", "ProductID");
 
-                    b.HasIndex("ProductID")
-                        .IsUnique();
+                    b.HasIndex("ProductID");
 
                     b.ToTable("OrderDetails");
                 });
@@ -245,14 +237,17 @@ namespace aspCore.WatchShop.Migrations
                     b.Property<int>("CategoryID")
                         .HasColumnType("int");
 
+                    b.Property<int>("ImageDefault")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Images")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(50)")
                         .HasMaxLength(50);
 
                     b.Property<int>("Price")
-                        .HasColumnType("int");
-
-                    b.Property<int>("ProductDetailID")
                         .HasColumnType("int");
 
                     b.Property<int>("SaleCount")
@@ -277,9 +272,6 @@ namespace aspCore.WatchShop.Migrations
 
                     b.HasIndex("CategoryID");
 
-                    b.HasIndex("ProductDetailID")
-                        .IsUnique();
-
                     b.HasIndex("TypeWireID");
 
                     b.ToTable("Products");
@@ -287,10 +279,8 @@ namespace aspCore.WatchShop.Migrations
 
             modelBuilder.Entity("aspCore.WatchShop.Entities.ProductDetail", b =>
                 {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                    b.Property<int>("ProductID")
+                        .HasColumnType("int");
 
                     b.Property<string>("Brand")
                         .HasColumnType("nvarchar(30)")
@@ -300,7 +290,7 @@ namespace aspCore.WatchShop.Migrations
                         .HasColumnType("nvarchar(30)")
                         .HasMaxLength(30);
 
-                    b.Property<string>("Description")
+                    b.Property<string>("DescriptionProduct")
                         .HasColumnType("nvarchar(1500)")
                         .HasMaxLength(1500);
 
@@ -336,7 +326,7 @@ namespace aspCore.WatchShop.Migrations
                         .HasColumnType("nvarchar(30)")
                         .HasMaxLength(30);
 
-                    b.HasKey("ID");
+                    b.HasKey("ProductID");
 
                     b.ToTable("ProductDetails");
                 });
@@ -354,8 +344,8 @@ namespace aspCore.WatchShop.Migrations
                     b.Property<decimal>("Discount")
                         .HasColumnType("decimal(2,2)");
 
-                    b.Property<DateTime>("FromDate")
-                        .HasColumnType("datetime2");
+                    b.Property<DateTime?>("FromDate")
+                        .HasColumnType("smalldatetime");
 
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(50)")
@@ -366,8 +356,13 @@ namespace aspCore.WatchShop.Migrations
                         .HasColumnType("bit")
                         .HasDefaultValue(true);
 
-                    b.Property<DateTime>("ToDate")
-                        .HasColumnType("datetime2");
+                    b.Property<DateTime?>("ToDate")
+                        .HasColumnType("smalldatetime");
+
+                    b.Property<bool?>("TypePromotion")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValue(false);
 
                     b.Property<bool?>("isAlways")
                         .ValueGeneratedOnAdd()
@@ -388,9 +383,6 @@ namespace aspCore.WatchShop.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("ProductID", "PromotionID");
-
-                    b.HasIndex("ProductID")
-                        .IsUnique();
 
                     b.HasIndex("PromotionID");
 
@@ -437,11 +429,11 @@ namespace aspCore.WatchShop.Migrations
                     b.ToTable("Users");
                 });
 
-            modelBuilder.Entity("aspCore.WatchShop.Entities.Image", b =>
+            modelBuilder.Entity("aspCore.WatchShop.Entities.BillPromotion", b =>
                 {
-                    b.HasOne("aspCore.WatchShop.Entities.Product", "Product")
-                        .WithMany("Images")
-                        .HasForeignKey("ProductID")
+                    b.HasOne("aspCore.WatchShop.Entities.Promotion", "Promotion")
+                        .WithOne("BillPromotion")
+                        .HasForeignKey("aspCore.WatchShop.Entities.BillPromotion", "PromotionID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
@@ -453,6 +445,10 @@ namespace aspCore.WatchShop.Migrations
                         .HasForeignKey("CustomerID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.HasOne("aspCore.WatchShop.Entities.User", null)
+                        .WithMany("Orders")
+                        .HasForeignKey("UserID");
                 });
 
             modelBuilder.Entity("aspCore.WatchShop.Entities.OrderDetail", b =>
@@ -464,8 +460,8 @@ namespace aspCore.WatchShop.Migrations
                         .IsRequired();
 
                     b.HasOne("aspCore.WatchShop.Entities.Product", "Product")
-                        .WithOne("OrderDetail")
-                        .HasForeignKey("aspCore.WatchShop.Entities.OrderDetail", "ProductID")
+                        .WithMany()
+                        .HasForeignKey("ProductID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
@@ -478,12 +474,6 @@ namespace aspCore.WatchShop.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("aspCore.WatchShop.Entities.ProductDetail", "ProductDetail")
-                        .WithOne("Product")
-                        .HasForeignKey("aspCore.WatchShop.Entities.Product", "ProductDetailID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("aspCore.WatchShop.Entities.TypeWire", "TypeWire")
                         .WithMany("Products")
                         .HasForeignKey("TypeWireID")
@@ -491,15 +481,24 @@ namespace aspCore.WatchShop.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("aspCore.WatchShop.Entities.ProductDetail", b =>
+                {
+                    b.HasOne("aspCore.WatchShop.Entities.Product", "Product")
+                        .WithOne("ProductDetail")
+                        .HasForeignKey("aspCore.WatchShop.Entities.ProductDetail", "ProductID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
             modelBuilder.Entity("aspCore.WatchShop.Entities.PromotionDetail", b =>
                 {
-                    b.HasOne("aspCore.WatchShop.Entities.Product", "product")
-                        .WithOne("PromotionDetail")
-                        .HasForeignKey("aspCore.WatchShop.Entities.PromotionDetail", "ProductID")
+                    b.HasOne("aspCore.WatchShop.Entities.Product", "Product")
+                        .WithMany()
+                        .HasForeignKey("ProductID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("aspCore.WatchShop.Entities.Promotion", "promotion")
+                    b.HasOne("aspCore.WatchShop.Entities.Promotion", "Promotion")
                         .WithMany("PromotionDetail")
                         .HasForeignKey("PromotionID")
                         .OnDelete(DeleteBehavior.Cascade)

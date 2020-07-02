@@ -2,26 +2,17 @@
         <div id="sidebar" class="sidebar sidebar-with-footer">
           <!-- Aplication Brand -->
           <div class="app-brand">
-            <a href="/index.html" title="Sleek Dashboard">
+            <a asp-area="Admin" asp-controller="Home" title="Sleek Dashboard">
               <svg
                 class="brand-icon"
                 xmlns="http://www.w3.org/2000/svg"
                 preserveAspectRatio="xMidYMid"
                 width="30"
                 height="33"
-                viewBox="0 0 30 33"
-              >
+                viewBox="0 0 30 33">
                 <g fill="none" fill-rule="evenodd">
-                  <path
-                    class="logo-fill-blue"
-                    fill="#7DBCFF"
-                    d="M0 4v25l8 4V0zM22 4v25l8 4V0z"
-                  />
-                  <path
-                    class="logo-fill-white"
-                    fill="#FFF"
-                    d="M11 4v25l8 4V0z"
-                  />
+                  <path class="logo-fill-blue" fill="#7DBCFF" d="M0 4v25l8 4V0zM22 4v25l8 4V0z"/>
+                  <path class="logo-fill-white" fill="#FFF" d="M11 4v25l8 4V0z"/>
                 </g>
               </svg>
               <span class="brand-name text-truncate">Sleek Dashboard</span>
@@ -30,72 +21,56 @@
           <!-- begin sidebar scrollbar -->
           <div>
             <!-- sidebar menu -->
-            <ul class="nav sidebar-inner" id="sidebar-menu">
-              <li class="active">
-                <a
-                  class="sidenav-item-link"
-                  href="javascript:void(0)">
+            <ul class="nav sidebar-inner" id="sidebar-menu" data-nav="@ViewBag.IndexSideNav">
+              <!-- dashboard -->
+              <li>
+                <a class="sidenav-item-link" asp-area="Admin" asp-controller="Home">
                   <i class="mdi mdi-view-dashboard-outline"></i>
-                  <span class="nav-text">Dashboard</span>
+                  <span class="nav-text">Tổng Quan</span>
                 </a>
               </li>
-
+              <!-- orders -->
               <li>
-                <a
-                  class="sidenav-item-link"
-                  href="javascript:void(0)"
-                >
+                <a class="sidenav-item-link" asp-area="Admin" asp-controller="Order">
+                  <i class="mdi mdi-format-list-checks"></i>
+                  <span class="nav-text">Đơn Hàng</span> 
+                </a>
+              </li>
+              <!-- products -->
+              <li>
+                <a class="sidenav-item-link" asp-area="Admin" asp-controller="Product">
+                  <i class="mdi mdi-watch"></i>
+                  <span class="nav-text">Sản Phẩm</span> 
+                </a>
+              </li>
+              <!-- customers -->
+              <li>
+                <a class="sidenav-item-link"  asp-area="Admin" asp-controller="Customer" >
+                  <i class="mdi mdi-account-group-outline"></i>
+                  <span class="nav-text">Khách Hàng</span> 
+                </a>
+              </li>
+              <!-- promotion -->
+             <li>
+                <a class="sidenav-item-link" asp-area="Admin" asp-controller="Promotion" >
+                  <i class="mdi mdi-sale"></i>
+                  <span class="nav-text">Khuyến Mãi</span> 
+                </a>
+              </li>
+              <!-- privacy -->
+              <li>
+                <a class="sidenav-item-link" asp-area="Admin" asp-controller="Privacy" >
+                  <i class="mdi mdi-more"></i>
+                  <span class="nav-text">Chính sách</span> 
+                </a>
+              </li>
+              <!-- config -->
+              <li>
+                <a class="sidenav-item-link" asp-area="Admin" asp-controller="Config" >
                   <i class="mdi mdi-pencil-box-multiple"></i>
-                  <span class="nav-text">App</span> 
+                  <span class="nav-text">Website< config</span> 
                 </a>
               </li>
-
-              <li >
-                <a
-                  class="sidenav-item-link"
-                  href="javascript:void(0)">
-                  <i class="mdi mdi-folder-multiple-outline"></i>
-                  <span class="nav-text">Components</span>
-                </a>
-              </li>
-
-              <li >
-                <a
-                  class="sidenav-item-link"
-                  href="javascript:void(0)"
-                  
-                >
-                  <i class="mdi mdi-diamond-stone"></i>
-                  <span class="nav-text">Icons</span> </b>
-                </a>
-               
-              </li>
-
-              <li >
-                <a
-                  class="sidenav-item-link"
-                  href="javascript:void(0)"
-                  
-                >
-                  <i class="mdi mdi-email-mark-as-unread"></i>
-                  <span class="nav-text">Forms</span> </b>
-                </a>
-                
-              </li>
-
-              <li>
-                <a class="sidenav-item-link" href="javascript:void(0)" >
-                  <i class="mdi mdi-diamond-stone"></i>
-                  <span class="nav-text">Icons</span> </b>
-                </a>
-              </li>
-              
-              <li>
-                <a class="sidenav-item-link" href="javascript:void(0)" >
-                  <i class="mdi mdi-email-mark-as-unread"></i>
-                  <span class="nav-text">Forms</span> </b>
-                </a>           
-              </li>      
             </ul>
           </div>
         </div>

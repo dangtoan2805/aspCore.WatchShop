@@ -24,7 +24,7 @@ namespace aspCore.WatchShop.Controllers
             _context = context;
         }
 
-        public async Task<List<ProductVM>> Search(string key)
+        public async Task<List<ProductVM>> Search(string ten)
         {
             // return await _product.FindProductWithKey(key, 5);
             return null;

@@ -1,10 +1,14 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace aspCore.WatchShop.Entities
 {
     public class ProductDetail
     {
-        public int ID { get; set; }
+        [Key]
+        [ForeignKey("Product")]
+        public int ProductID { get; set; }
         [MaxLength(30)]
         public string TypeGlass { get; set; }
         [MaxLength(30)]
@@ -26,7 +30,7 @@ namespace aspCore.WatchShop.Entities
         [MaxLength(30)]
         public string Func { get; set; }
         [MaxLength(1500)]
-        public string Description { get; set; }
+        public string DescriptionProduct { get; set; }
         //Nav property
         public Product Product { get; set; }
     }

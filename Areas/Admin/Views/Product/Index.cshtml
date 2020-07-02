@@ -1,137 +1,119 @@
 @{
-    ViewBag.Title="Products";
+    ViewBag.Title="Sản phẩm";
+    ViewBag.IndexSideNav=2;
+}
+@section scripts{
+    <script src="~/js/admin/products.js"></script> </script>
 }
 <div class="content-wrapper">
-    <div class="content">
-        <div class="row">
-            <div class="col-12">
-            <!-- Product Table -->
-                <div class="card card-table-border-none" id="recent-orders">
-                    <div class="card-header justify-content-between">
-                        <h2>Sản phẩm</h2>
-                        <div class="ml-auto d-flex ">
-                            <p>Số lượng: 100</p>   
-                            <a href="#" class="btn btn-danger py-3 text-uppercase">Add</a>
-                        </div>
-                    </div>
-                    <div class="card-body pt-0 pb-5">
-                        <table class="table card-table table-responsive table-responsive-large" style="width:100%">
-                            <thead>
-                            <tr>
-                                <th>ID</th>
-                                <th class="d-none d-lg-table-cell"> Hình ảnh</th>
-                                <th >Tên SP</th>
-                                <th>
-                                    <div class="dropdown d-inline-block">
-                                        <span class="btn-square btn-outline-secondary vt-none-hover border-0 dropdown-toggle" 
-                                            type="button" id="dropdownStatus" 
-                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-display="static">
-                                            Giá
-                                        </span>
-                                        <div class="dropdown-menu" aria-labelledby="dropdownStatus">
-                                            <a class="dropdown-item" href="#">Tăng dần</a>
-                                            <a class="dropdown-item" href="#">Giảm dần</a>
-                                        </div>
-                                    </div> 
-                                </th>
-                                <th class="d-none d-lg-table-cell">
-                                    <div class="dropdown d-inline-block">
-                                        <span class="btn-square btn-outline-secondary vt-none-hover border-0 dropdown-toggle" 
-                                            type="button" id="dropdownStatus" 
-                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-display="static">
-                                            Phân loại
-                                        </span>
-                                        <div class="dropdown-menu" aria-labelledby="dropdownStatus">
-                                            <a class="dropdown-item" href="#">Action</a>
-                                            <a class="dropdown-item" href="#">Another action</a>
-                                            <a class="dropdown-item" href="#">Something else here</a>
-                                        </div>
-                                    </div> 
-                                </th>
-                                <th class="d-none d-lg-table-cell">
-                                     <div class="dropdown d-inline-block">
-                                        <span class="btn-square btn-outline-secondary vt-none-hover border-0 dropdown-toggle" 
-                                            type="button" id="dropdownStatus" 
-                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-display="static">
-                                            Loại Dây
-                                        </span>
-                                        <div class="dropdown-menu" aria-labelledby="dropdownStatus">
-                                            <a class="dropdown-item" href="#">Action</a>
-                                            <a class="dropdown-item" href="#">Another action</a>
-                                            <a class="dropdown-item" href="#">Something else here</a>
-                                        </div>
-                                    </div> 
-                                </th>
-                                <th>
-                                    <div class="dropdown d-inline-block">
-                                        <span class="btn-square btn-outline-secondary vt-none-hover border-0 dropdown-toggle" 
-                                            type="button" id="dropdownStatus" 
-                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-display="static">
-                                            Đã bán
-                                        </span>
-                                        <div class="dropdown-menu" aria-labelledby="dropdownStatus">
-                                            <a class="dropdown-item" href="#">Tăng dần</a>
-                                            <a class="dropdown-item" href="#">Giảm dần</a>
-                                        </div>
-                                    </div> 
-                                </th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr>
-                                <td >24541</td>
-                                <td class="d-none d-lg-table-cell">
-                                    <div class="vt-img" style="width:50px">
-                                        <img src="~/product/img_watch_1.jpg">
-                                    </div>
-                                </td>
-                                <td >
-                                    <a class="text-dark" href=""> Hat Black Suits</a>
-                                </td>
-                                <td >1 Unit</td>
-                                <td class="d-none d-lg-table-cell">Nov 18, 2018</td>
-                                <td class="d-none d-lg-table-cell">$325</td>
-                                <td>25</td>
-                                <td class="d-none d-lg-table-cell">
-                                    <label class="switch switch-icon switch-primary switch-pill form-control-label">
-                                        <input type="checkbox" class="switch-input form-check-input" value="on" checked>
-                                        <span class="switch-label"></span>
-                                        <span class="switch-handle"></span>
-                                    </label>
-                                </td>
-                               
-                            </tr>    
-                             <tr>
-                                <td >24541</td>
-                                <td class="d-none d-lg-table-cell">
-                                    <div class="vt-img" style="width:50px">
-                                        <img src="~/product/img_watch_1.jpg">
-                                    </div>
-                                </td>
-                                <td >
-                                    <a class="text-dark" href=""> Hat Black Suits</a>
-                                </td>
-                                <td >1 Unit</td>
-                                <td class="d-none d-lg-table-cell">Nov 18, 2018</td>
-                                <td class="d-none d-lg-table-cell">$325</td>
-                                <td>25</td>
-                                <td class="d-none d-lg-table-cell">
-                                    <label class="switch switch-icon switch-primary switch-pill form-control-label">
-                                        <input type="checkbox" class="switch-input form-check-input" value="on" checked>
-                                        <span class="switch-label"></span>
-                                        <span class="switch-handle"></span>
-                                    </label>
-                                </td>
-                                
-                            </tr>    
-                            </tbody>
-                        </table>
-                    </div>
-                    <div class="card-footer bg-white py-3 text-center">
-                        <a href="#" class="btn-link py-3 text-uppercase">More</a>
+    <div class="content"> 
+        <!-- Products -->
+        <div class="card card-table-border-none">
+            <div class="card-header">     
+                <div class="col-md-2 col-12 mb-3">
+                    <h2 class="mb-0" >Sản phẩm</h2>
+                </div>
+                <!-- Search -->
+                <div class="col-md-4 col-12 mb-3">
+                    <div class="search-form w-100">
+                        <input type="text"  id="search-input" class="form-control" 
+                            placeholder="'', 'chart' etc."/>
                     </div>
                 </div>
+                <div class="col-md-3 col-4 mb-3 text-right">
+                    <p class="text-secondary"><span id="vt-total"></span> sản phẩm</p>
+                </div>
+                <!-- Add product -->
+                <div class="col-md-3 col-8 mb-3 text-right">
+                    <a id="vt-add-product" class="btn btn-primary text-white" style="cursor: pointer;"
+                        href="/Admin/Product/Create">
+                        <i class="mdi mdi-plus-circle"></i> Thêm sản phẩm</a>
+                </div>
             </div>
-        </div>       
+            <div class="card-body pt-0 pb-5">
+                <!--Header List-->
+                <div class="row mb-3 text-dark">
+                    <div class="col-10">
+                        <div class="row">
+                            <div class="col-md-1 col-4">ID</div>
+                            <div class="col-md-2 vt-d-none">Ảnh</div>
+                            <div class="col-md-2 col-4">Tên</div>
+                            <div class="col-md-2 col-4">Giá </div>
+                            <div class="col-md-2 vt-d-none" >
+                                <div class="dropdown d-inline-block">
+                                    <span class="btn-square btn-outline-secondary vt-none-hover border-0" 
+                                        type="button" id="dropdownCost" 
+                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-display="static">
+                                        Phân loại
+                                        <i class="mdi mdi-chevron-down"></i>
+                                    </span>
+                                    <div id="vt-filter-cate" class="dropdown-menu" aria-labelledby="dropdownCost">
+                                        <a class="dropdown-item" href="#" data-index="-1">Tất cả</a>
+                                        @foreach (var item in ViewBag.Category)
+                                        {
+                                            <a class="dropdown-item" href="#" data-index="@item.ID">@item.Name</a>
+                                        }
+                                
+                                    </div>
+                                </div> 
+                            </div>
+                            <div class="col-md-2 vt-d-none" >
+                                <div class="dropdown d-inline-block">
+                                    <span class="btn-square btn-outline-secondary vt-none-hover border-0 " 
+                                        type="button" id="dropdownCost" 
+                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-display="static">
+                                        Loại dây
+                                        <i class="mdi mdi-chevron-down"></i>
+                                    </span>
+                                    <div id="vt-filter-wire" class="dropdown-menu" aria-labelledby="dropdownCost">
+                                        <a class="dropdown-item" href="#" data-index="-1">Tất cả</a>
+                                       @foreach (var item in ViewBag.Wires)
+                                       {
+                                         <a class="dropdown-item" href="#" data-index="@item.ID">@item.Name</a>
+                                       }
+                                    </div>
+                                </div> 
+                            </div>
+                            <div class="col-md-1 vt-d-none" >
+                                <div class="dropdown d-inline-block">
+                                    <span class="btn-square btn-outline-secondary vt-none-hover border-0 " 
+                                        type="button" id="dropdownCost" 
+                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-display="static">
+                                        Bán
+                                        <i class="mdi mdi-chevron-down"></i>
+                                    </span>
+                                    <div id="vt-orderby-sale" class="dropdown-menu" aria-labelledby="dropdownCost">
+                                        <a class="dropdown-item" href="#" data-index="0">Thấp</a>
+                                        <a class="dropdown-item" href="#" data-index="1">Cao</a>
+                                    </div>
+                                </div> 
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-2 text-center">
+                        <div class="dropdown d-inline-block dropleft">
+                            <span class="btn-square btn-outline-secondary vt-none-hover border-0" 
+                                type="button" id="dropdownStatus" 
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-display="static">
+                                Status
+                                <i class="mdi mdi-chevron-down"></i>
+                            </span>
+                            <div id="vt-orderby-status" class="dropdown-menu" aria-labelledby="dropdownStatus">
+                                <a class="dropdown-item" href="#" data-index="0">Đang bán</a>
+                                <a class="dropdown-item" href="#" data-index="1">Dừng bán</a>
+                            </div>
+                        </div> 
+                    </div>
+                </div>
+                <!--Content List-->
+                <div id="vt-container-data"></div>
+            </div>
+            <div class="card-footer bg-white py-3 text-center">
+                <nav>
+                    <ul id="vt-pagination" class="pagination pagination-sm justify-content-center">
+                    </ul>
+                </nav>
+            </div>
+        </div>
     </div>
 </div>

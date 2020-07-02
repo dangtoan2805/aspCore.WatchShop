@@ -1,184 +1,102 @@
  @{
-   ViewBag.Title="Dasd";
+   ViewBag.Title="Tổng quan";
+   ViewBag.IndexSideNav=0;
+ }
+ @section css{
+    <link href="~/lib/daterangepicker/daterangepicker.css" rel="stylesheet"/>
+ }
+ @section scripts{
+    <script src="~/lib/daterangepicker/moment.min.js"></script>
+    <script src="~/lib/daterangepicker/daterangepicker.js"></script>
+    <script src="~/lib/charts/Chart.min.js"></script>
+    <script src="~/js/admin/report.js"> </script>
  }
  <div class="content-wrapper">
     <div class="content">
       <!-- Top Statistics -->
       <div class="row">
+        <!-- Ỏrders Done -->
         <div class="col-md-6 col-lg-6 col-xl-3">
           <div class="media widget-media p-4 bg-white border">
             <div class="icon rounded-circle mr-4 bg-primary">
-              <i class="mdi mdi-account-outline text-white "></i>
+              <i class="mdi mdi-library-books text-white "></i>
             </div>
             <div class="media-body align-self-center">
-              <h4 class="text-primary mb-2">5300</h4>
-              <p>New Users</p>
+              <h4 class="text-primary mb-2">@ViewBag.Dones</h4>
+              <p>Đơn hàng hoàn thành</p>
             </div>
           </div>
         </div>
+        <!-- Ỏrders Delivery -->
         <div class="col-md-6 col-lg-6 col-xl-3">
           <div class="media widget-media p-4 bg-white border">
             <div class="icon rounded-circle bg-warning mr-4">
-              <i class="mdi mdi-cart-outline text-white "></i>
+              <i class="mdi mdi-library-books text-white "></i>
             </div>
             <div class="media-body align-self-center">
-              <h4 class="text-primary mb-2">1953</h4>
-              <p>Order Placed</p>
+              <h4 class="text-primary mb-2">@ViewBag.Deliverys</h4>
+              <p>Đơn hàng đang giao</p>
             </div>
           </div>
         </div>
+        <!-- Orders Received -->
         <div class="col-md-6 col-lg-6 col-xl-3">
           <div class="media widget-media p-4 bg-white border">
             <div class="icon rounded-circle mr-4 bg-danger">
-              <i class="mdi mdi-cart-outline text-white "></i>
+              <i class="mdi mdi-library-books text-white "></i>
             </div>
             <div class="media-body align-self-center">
-              <h4 class="text-primary mb-2">1450</h4>
-              <p>Total Sales</p>
+              <h4 class="text-primary mb-2">@ViewBag.Received</h4>
+              <p>Đơn hàng chưa giao</p>
             </div>
           </div>
         </div>
+        <!-- Total Revenue -->
         <div class="col-md-6 col-lg-6 col-xl-3">
           <div class="media widget-media p-4 bg-white border">
-            <div class="icon bg-success rounded-circle mr-4">
-              <i class="mdi mdi-diamond text-white "></i>
+            <div class="icon rounded-circle mr-4  bg-success ">
+              <i class="mdi mdi-currency-usd text-white "></i>
             </div>
             <div class="media-body align-self-center">
-              <h4 class="text-primary mb-2">9503</h4>
-              <p>Monthly Revenue</p>
+              <h4 class="text-primary mb-2">@ViewBag.TotalRevenue</h4>
+              <p>Tổng doanh thu</p>
             </div>
           </div>
         </div>
       </div>
+      <!--Chart & Graph-->
       <div class="row">
-        <div class="col-xl-8 col-md-12">
+        <div class="col-xl-12 col-md-12">
           <!-- Sales Graph -->
           <div class="card card-default" data-scroll-height="675">
             <div class="card-header">
-              <h2>Sales Of The Year</h2>
+              <div class="col-md-6 col-12 mb-3"> 
+                <h2>Thống kê đơn hàng</h2>
+              </div>
+              <div class="col-md-6 col-12 mb-3"> 
+                <div class="ml-auto vt-daterange">                
+                  <div id="reportrange" class="form-control">
+                      <i class="mdi mdi-calendar"></i>
+                      <span></span> <i class="mdi mdi-chevron-down"></i>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div class="card-body">
-              <canvas id = "linechart" class="chartjs"></canvas>
-            </div>
+            <div id="chart-content" class="card-body"></div>
             <div class="card-footer d-flex flex-wrap bg-white p-0">
               <div class="col-6 px-0">
                 <div class="text-center p-4">
-                  <h4>$6,308</h4>
-                  <p class="mt-2">Total orders of this year</p>
+                  <h4 id="vt-orders"></h4>
+                  <p class="mt-2">Đơn hàng</p>
                 </div>
               </div>
               <div class="col-6 px-0">
                 <div class="text-center p-4 border-left">
-                  <h4>$70,506</h4>
-                  <p class="mt-2">Total revenue of this year</p>
+                  <h4 id="vt-revenue"></h4>
+                  <p class="mt-2">Doanh thu</p>
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-        <div class="col-xl-4 col-md-12">
-          <!-- Doughnut Chart -->
-          <div class="card card-table-border-none" style="height: 675px;">
-            <div class="card-header justify-content-between">
-              <h2>Sold by Units</h2>
-            </div>
-            <div class="card-body py-0">
-              <table class="table">
-                <tbody>
-                  <tr>
-                    <td class="text-dark">Backpack</td>
-                    <td class="text-center">9</td>
-                    <td class="text-right">
-                      33%
-                      <i
-                        class="mdi mdi-arrow-up-bold text-success pl-1 font-size-12"
-                      ></i>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td class="text-dark">T-Shirt</td>
-                    <td class="text-center">6</td>
-                    <td class="text-right">
-                      150%
-                      <i
-                        class="mdi mdi-arrow-up-bold text-success pl-1 font-size-12"
-                      ></i>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td class="text-dark">Coat</td>
-                    <td class="text-center">3</td>
-                    <td class="text-right">
-                      50%
-                      <i
-                        class="mdi mdi-arrow-up-bold text-success pl-1 font-size-12"
-                      ></i>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td class="text-dark">Necklace</td>
-                    <td class="text-center">7</td>
-                    <td class="text-right">
-                      150%
-                      <i
-                        class="mdi mdi-arrow-up-bold text-success pl-1 font-size-12"
-                      ></i>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td class="text-dark">Jeans Pant</td>
-                    <td class="text-center">10</td>
-                    <td class="text-right">
-                      300%
-                      <i
-                        class="mdi mdi-arrow-down-bold text-danger pl-1 font-size-12"
-                      ></i>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td class="text-dark">Shoes</td>
-                    <td class="text-center">5</td>
-                    <td class="text-right">
-                      100%
-                      <i
-                        class="mdi mdi-arrow-up-bold text-success pl-1 font-size-12"
-                      ></i>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td class="text-dark">T-Shirt</td>
-                    <td class="text-center">6</td>
-                    <td class="text-right">
-                      150%
-                      <i
-                        class="mdi mdi-arrow-up-bold text-success pl-1 font-size-12"
-                      ></i>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td class="text-dark">T-Shirt</td>
-                    <td class="text-center">6</td>
-                    <td class="text-right">
-                      150%
-                      <i
-                        class="mdi mdi-arrow-up-bold text-success pl-1 font-size-12"
-                      ></i>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td class="text-dark">T-Shirt</td>
-                    <td class="text-center">6</td>
-                    <td class="text-right">
-                      150%
-                      <i
-                        class="mdi mdi-arrow-up-bold text-success pl-1 font-size-12"
-                      ></i>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>      
-            </div>
-            <div class="card-footer border-0 bg-white p-0" style="padding: 1.1rem, 1.25rem;"></div>
           </div>
         </div>
       </div>
