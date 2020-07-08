@@ -10,8 +10,8 @@ using aspCore.WatchShop.EF;
 namespace aspCore.WatchShop.Migrations
 {
     [DbContext(typeof(watchContext))]
-    [Migration("20200702092336_Init")]
-    partial class Init
+    [Migration("20200705064051_init")]
+    partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -239,10 +239,7 @@ namespace aspCore.WatchShop.Migrations
                     b.Property<int>("CategoryID")
                         .HasColumnType("int");
 
-                    b.Property<int>("ImageDefault")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Images")
+                    b.Property<string>("Image")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
@@ -299,6 +296,9 @@ namespace aspCore.WatchShop.Migrations
                     b.Property<string>("Func")
                         .HasColumnType("nvarchar(30)")
                         .HasMaxLength(30);
+
+                    b.Property<string>("Images")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Origin")
                         .HasColumnType("nvarchar(30)")

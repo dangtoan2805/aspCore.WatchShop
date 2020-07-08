@@ -20536,11 +20536,6 @@
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\TOAN\\Documents\\SrcCode\\aspCore.WatchShop\\Areas\\Admin\\Views\\Customer\\Customers.cshtml",
-      "TargetPath": "Areas\\Admin\\Views\\Customer\\Customers.cshtml",
-      "FileKind": "mvc"
-    },
-    {
       "FilePath": "c:\\Users\\TOAN\\Documents\\SrcCode\\aspCore.WatchShop\\Views\\Cart\\Index.cshtml",
       "TargetPath": "Views\\Cart\\Index.cshtml",
       "FileKind": "mvc"

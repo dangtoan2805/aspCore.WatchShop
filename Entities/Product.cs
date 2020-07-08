@@ -13,8 +13,7 @@ namespace aspCore.WatchShop.Entities
         public bool? isShow { get; set; }
         public bool? isDel { get; set; }
         public int Price { get; set; }
-        public int ImageDefault { get; set; }
-        public string Images { get; set; }
+        public string Image { get; set; }
         public int SaleCount { get; set; }
         [ForeignKey("Category")]
         public int CategoryID { get; set; }

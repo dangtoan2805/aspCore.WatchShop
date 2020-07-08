@@ -9,6 +9,7 @@ namespace aspCore.WatchShop.Entities
         [Key]
         [ForeignKey("Product")]
         public int ProductID { get; set; }
+        public string Images { get; set; }
         [MaxLength(30)]
         public string TypeGlass { get; set; }
         [MaxLength(30)]

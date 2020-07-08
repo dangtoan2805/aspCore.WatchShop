@@ -1,40 +1,7 @@
 $(function () {
     /*======== VARIABLE========*/
-    var ar = [
-        100,
-        11000,
-        10000,
-        14000,
-        11000,
-        17000,
-        14500,
-        18000,
-        5000,
-        23000,
-        14000,
-        19000,
-        100,
-        11000,
-        10000,
-        14000,
-        11000,
-        17000,
-        14500,
-        18000,
-        5000,
-        23000,
-        14000,
-        19000,
-        14500,
-        18000,
-        5000,
-        23000,
-        14000,
-        19000
-
-    ]
     //Date defautl
-    var start = moment().subtract(6, 'days');
+    var start = moment().subtract(7, 'days');
     var end = moment();
     /*======== DEFINE EVENT ON VIEW ========*/
     var onChangeDate = function (start, end) {
@@ -48,11 +15,10 @@ $(function () {
             method: "GET",
             url: `/Admin/Home/OrderReport`,
             dataType: "JSON",
-            data: { start: fromDate.format(dateFormter), end: toDate.format(dateFormter) }
+            data: { start: fromDate.format('L'), end: toDate.format('L') }
         }).done(data => {
-            displayReport(getDays(fromDate, toDate), ar);
-            $("#vt-orders").text(1000);
-            $("#vt-revenue").text(99999);
+            requestSuccess(data);
+
         })
     }
 
@@ -60,6 +26,7 @@ $(function () {
     $('#reportrange').daterangepicker({
         startDate: start,
         endDate: end,
+        opens: 'left',
         ranges: {
             'Last 7 Days': [moment().subtract(6, 'days'), moment()],
             'Last 30 Days': [moment().subtract(29, 'days'), moment()],
@@ -70,6 +37,22 @@ $(function () {
 
 
     /*======== UPDATE VIEW ========*/
+    function requestSuccess(data) {
+        let lables = []
+        let date = []
+        let sum = 0;
+        let count = 0;
+        data.forEach(item => {
+            let arDate = item.dateCreated.split('T')[0].split('-');
+            lables.push(`${arDate[2]}/${arDate[1]}`);
+            date.push(item.countOrder);
+            count = count + item.countOrder;
+            sum = sum + item.total;
+        });
+        $('#vt-orders').text(count);
+        $('#vt-revenue').text(sum);
+        displayReport(lables, date)
+    }
     // Display on View
     function displayReport(lables, data) {
         var lineChart = document.createElement('canvas');
@@ -90,11 +73,9 @@ $(function () {
                             borderColor: "rgb(82, 136, 255)",
                             data: data,
                             lineTension: 0.3,
-                            pointRadius: 5,
                             pointBackgroundColor: "rgba(255,255,255,1)",
                             pointHoverBackgroundColor: "rgba(255,255,255,1)",
-                            pointBorderWidth: 2,
-                            pointHoverRadius: 8,
+                            pointBorderWidth: 1,
                             pointHoverBorderWidth: 1
                         },
                     ]
@@ -103,6 +84,7 @@ $(function () {
                 options: {
                     responsive: true,
                     maintainAspectRatio: false,
+                    borderDashOffset: 0,
                     legend: {
                         display: false
                     },
@@ -117,6 +99,7 @@ $(function () {
                                 gridLines: {
                                     display: false
                                 }
+
                             }
                         ],
                         yAxes: [
@@ -125,6 +108,11 @@ $(function () {
                                     display: true,
                                     color: "#eee",
                                     zeroLineColor: "#eee",
+                                },
+                                ticks: {
+                                    min: 0,
+                                    suggestedMax: 5,
+                                    stepSize: 1
                                 }
                             }
                         ]
@@ -135,7 +123,7 @@ $(function () {
                                 return data["labels"][tooltipItem[0]["index"]];
                             },
                             label: function (tooltipItem, data) {
-                                return "$" + data["datasets"][0]["data"][tooltipItem["index"]];
+                                return data["datasets"][0]["data"][tooltipItem["index"]] + " đơn hàng";
                             }
                         },
                         responsive: true,
@@ -144,7 +132,7 @@ $(function () {
                         titleFontColor: "#888",
                         bodyFontColor: "#555",
                         titleFontSize: 10,
-                        bodyFontSize: 18,
+                        bodyFontSize: 12,
                         backgroundColor: "rgba(256,256,256,0.95)",
                         xPadding: 20,
                         yPadding: 10,
@@ -157,22 +145,6 @@ $(function () {
                 }
             });
         }
-    }
-
-    // Get List Day in Period  to show report
-    function getDays(start, end) {
-        let lables = []
-        let fromDate = start;
-        let toDate = end;
-        do {
-            lables.push(fromDate.format('DD/MM'));
-            fromDate = fromDate.add(1, 'days');
-            if (fromDate.format('DD/MM') === toDate.format('DD/MM')) {
-                lables.push(fromDate.format('DD/MM'));
-                break;
-            }
-        } while (true)
-        return lables;
     }
 
     onChangeDate(start, end);

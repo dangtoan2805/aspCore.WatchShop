@@ -237,10 +237,7 @@ namespace aspCore.WatchShop.Migrations
                     b.Property<int>("CategoryID")
                         .HasColumnType("int");
 
-                    b.Property<int>("ImageDefault")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Images")
+                    b.Property<string>("Image")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
@@ -297,6 +294,9 @@ namespace aspCore.WatchShop.Migrations
                     b.Property<string>("Func")
                         .HasColumnType("nvarchar(30)")
                         .HasMaxLength(30);
+
+                    b.Property<string>("Images")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Origin")
                         .HasColumnType("nvarchar(30)")

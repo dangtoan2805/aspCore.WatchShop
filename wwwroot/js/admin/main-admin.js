@@ -1,6 +1,7 @@
 $(document).ready(function () {
 	var indexNav = $("#sidebar-menu").data("nav");
 	$(`#sidebar-menu li:eq(${indexNav})`).addClass("active");
+	$("#loading").fadeOut(500);
 });
 
 /*======== TREAT REQUEST ========*/
@@ -10,7 +11,7 @@ $(document).ajaxError((...param) => {
 });
 
 $(document).ajaxStart(() => {
-	$("#loading").fadeIn(500);
+	// $("#loading").fadeIn(500);
 })
 
 $(document).ajaxComplete((...param) => {
@@ -18,7 +19,7 @@ $(document).ajaxComplete((...param) => {
 })
 
 $(document).ajaxStop(() => {
-	$("#loading").fadeOut(500);
+	// $("#loading").fadeOut(500);
 })
 
 var dateFormter = 'DD/MM/YYYY';
@@ -47,10 +48,24 @@ var showPages = function (length, pageItems, handler) {
 	}
 	//Attach when click page
 	onChangePage(handler);
-	firstPageOnlyView();
 }
 
-var firstPageOnlyView = () => $(`#vt-pagination .page-item:first-child`).addClass('active');
+var firstPageOnlyView = () => {
+	$('#vt-pagination').children('.active').removeClass('active');
+	$(`#vt-pagination .page-item:first-child`).addClass('active');
+}
+
+var startLoader = () => {
+	let el = $('#vt-loader');
+	el.show();
+	el.parent().addClass('vt-event-none');
+}
+
+var stopLoader = () => {
+	let el = $('#vt-loader');
+	el.hide();
+	el.parent().removeClass('vt-event-none');
+}
 
 
 /*======== 5. TOASTER ========*/

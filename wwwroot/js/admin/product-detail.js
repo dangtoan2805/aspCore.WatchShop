@@ -1,5 +1,6 @@
 $(function () {
     var arImages = [];
+    var defaultImg = $('#vt-default-img');
     /*======== REQUEST ========*/
     function getImages() {
         let id = $("input[name='ID']").val();
@@ -28,7 +29,7 @@ $(function () {
     function onImgDefaulClick() {
         $('.vt-set-default').on('click', function () {
             let src = $(this).parent().prev().children('img').prop('src').split('/');
-            $('#vt-default-img').prop('src', `/product/${src[src.length - 1]}`);
+            defaultImg.prop('src', `/product/${src[src.length - 1]}`);
         });
     }
 
@@ -37,10 +38,11 @@ $(function () {
             let src = $(this).parent().prev().children('img').prop('src').split('/');
             let imgDefault = $('#vt-default-img');
             if (imgDefault.prop('src') === src) {
-                imgDefault.prop('src', `/product/img_null.jpg`)
+                imgDefault.prop('src', `/images/img_null.jpg`)
             }
             let parent = $(this).parents()[1];
-            $(parent).fadeOut(300)
+            $(parent).fadeOut(300);
+            parent.remove();
         });
     }
 
@@ -54,7 +56,13 @@ $(function () {
     $('#vt-upload').on('click', () => $('#vt-image-input').click());
 
     $('#vt-form').on('submit', function (e) {
-        $(`<input type='hidden' name='Files' value=${arImages.toString()} multiple />`).appendTo($(this));
+        let imgs = $('#vt-containter-img img');
+        for (let index = 0; index < imgs.length; index++) {
+            arImages.push($(imgs[index]).prop('src').split('/').pop())
+        }
+        console.log(arImages);
+        $(`<input type='hidden' name='Images' value='${arImages.toString()}' />`).appendTo($(this));
+        $(`<input type='hidden' name='Image' value='${defaultImg.prop('src').split('/').pop()}' />`).appendTo($(this));
         return true;
     });
     /*======== UPDATE VIEW ========*/
@@ -74,8 +82,8 @@ $(function () {
 
     function crtImageElement(imgName) {
         return `<div class="col-3 p-1 pb-3">
-                    <div class="vt-img mx-auto">
-                        <img src="/product/${imgName}">
+                    <div class="vt-img mx-auto" style="width: 150px; height: 150px">
+                        <img src="/product/${imgName}" style="height: 100%">
                     </div>
                     <div class="mx-auto d-flex justify-content-center">
                         <button class="vt-set-default btn btn-primary mdi mdi-tshirt-crew w-50 m-2"></button>
@@ -84,6 +92,8 @@ $(function () {
                 </div> `
     }
 
+    onImgDefaulClick();
+    onImgDelClick();
     /*======== END ========*/
     $('#loading').fadeOut(500);
 })

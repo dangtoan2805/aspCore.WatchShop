@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "RdAf7Ri64WX8PzfKtRCLye9Z0zrMLLm+g0GrEQvbtNCkEr9cbYcxGAEPjxOEydGdruJbfyi4TxN0bqNbnbus5A==",
+  "dgSpecHash": "u3gbQowsmhgE1FrfWbF8kpRr1Gr7QOdSPtz6SJisfdBPw6wKsgKxgUHo10E1TRXaYNx4eoOAiIaAw4JaNYBY1Q==",
   "success": true,
   "projectFilePath": "C:\\Users\\TOAN\\Documents\\SrcCode\\aspCore.WatchShop\\aspCore.WatchShop.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\TOAN\\.nuget\\packages\\automapper\\9.0.0\\automapper.9.0.0.nupkg.sha512",
+    "C:\\Users\\TOAN\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\7.0.0\\automapper.extensions.microsoft.dependencyinjection.7.0.0.nupkg.sha512",
     "C:\\Users\\TOAN\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\3.1.5\\microsoft.aspnetcore.cryptography.internal.3.1.5.nupkg.sha512",
     "C:\\Users\\TOAN\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\3.1.5\\microsoft.aspnetcore.cryptography.keyderivation.3.1.5.nupkg.sha512",
     "C:\\Users\\TOAN\\.nuget\\packages\\microsoft.aspnetcore.html.abstractions\\2.2.0\\microsoft.aspnetcore.html.abstractions.2.2.0.nupkg.sha512",

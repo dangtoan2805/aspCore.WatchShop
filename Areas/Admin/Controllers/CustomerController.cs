@@ -7,53 +7,27 @@ using aspCore.WatchShop.EF;
 using System;
 using System.Linq;
 using aspCore.WatchShop.Helper;
+using aspCore.WatchShop.Models;
+using AutoMapper;
 
 namespace aspCore.WatchShop.Areas.Admin.Controllers
 {
     [Area("Admin")]
     public class CustomerController : Controller
     {
-        const string customerKey = "customers";
-        private IMemoryCache _cache = null;
-        private CustomerDao _db = null;
-        public CustomerController(IMemoryCache cache, watchContext context)
+        private CustomerModel _model = null;
+        public CustomerController(watchContext context, IMapper mapper, IMemoryCache cache)
         {
-            _cache = cache;
-            _db = new CustomerDao(context);
+            _model = new CustomerModel(context, mapper, cache);
         }
         public ActionResult Index()
         {
             return View();
         }
 
-        public JsonResult Customers(int pageItems)
+        public JsonResult Customers()
         {
-            List<Customer> ls = GetCustomers();
-            return Json(new List<object>() { ls.Take(pageItems), ls.Count });
-        }
-
-        public JsonResult Page(int number, int pageItems)
-        {
-            return Json(Helpful.GetPage(GetCustomers(), number, pageItems));
-        }
-
-        public JsonResult Find(string key, int pageItems)
-        {
-            List<Customer> re = (List<Customer>)_db.GetCusomters()
-               .Where(p => p.Phone.ToString() == key || p.Name == key).ToList();
-            return Json(re);
-        }
-
-        [NonAction]
-        public List<Customer> GetCustomers()
-        {
-            List<Customer> ls;
-            if (!_cache.TryGetValue(customerKey, out ls))
-            {
-                ls = _db.GetCusomters();
-                _cache.Set(customerKey, ls, DateTime.MaxValue);
-            }
-            return ls;
+            return Json(_model.GetCustomers());
         }
     }
 }

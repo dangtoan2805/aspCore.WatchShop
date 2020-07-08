@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace aspCore.WatchShop.Migrations
 {
-    public partial class Init : Migration
+    public partial class init : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -160,8 +160,7 @@ namespace aspCore.WatchShop.Migrations
                     isShow = table.Column<bool>(nullable: true, defaultValue: true),
                     isDel = table.Column<bool>(nullable: true, defaultValue: false),
                     Price = table.Column<int>(nullable: false),
-                    ImageDefault = table.Column<int>(nullable: false),
-                    Images = table.Column<string>(nullable: true),
+                    Image = table.Column<string>(nullable: true),
                     SaleCount = table.Column<int>(nullable: false, defaultValue: 0),
                     CategoryID = table.Column<int>(nullable: false),
                     TypeWireID = table.Column<int>(nullable: false)
@@ -220,6 +219,7 @@ namespace aspCore.WatchShop.Migrations
                 columns: table => new
                 {
                     ProductID = table.Column<int>(nullable: false),
+                    Images = table.Column<string>(nullable: true),
                     TypeGlass = table.Column<string>(maxLength: 30, nullable: true),
                     TypeBorder = table.Column<string>(maxLength: 30, nullable: true),
                     TypeMachine = table.Column<string>(maxLength: 30, nullable: true),

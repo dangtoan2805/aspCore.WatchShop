@@ -1,16 +1,9 @@
-﻿using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
+﻿using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
-using System.Linq.Expressions;
-using System.Threading.Tasks;
 using aspCore.WatchShop.EF;
 using aspCore.WatchShop.Entities;
-using aspCore.WatchShop.Enums;
-using aspCore.WatchShop.Models;
 
 namespace aspCore.WatchShop.DAOs
 {
@@ -25,190 +18,133 @@ namespace aspCore.WatchShop.DAOs
 
         public List<Category> GetCategories()
         {
-            return new List<Category>(){
-                new Category(){ID=0,Name="Nam"},
-                new Category(){ID=1,Name="Nu"},
-                new Category(){ID=2,Name="Vòng tay"}};
+            return _db.Categories.ToList();
         }
 
         public List<TypeWire> GetTypeWires()
         {
-            return new List<TypeWire>(){
-                new TypeWire(){ID=0,Name="Dây da"},
-                new TypeWire(){ID=1,Name="Dây kim loại"},
-                new TypeWire(){ID=2,Name="Dây nhựa"},
-                new TypeWire(){ID=2,Name="Dây cao su"}};
+            return _db.TypeWires.ToList();
         }
 
-        public List<ProductVM> GetProducts()
+        public List<Product> GetProducts()
         {
-            List<ProductVM> ls = new List<ProductVM>();
-            for (int i = 0; i < 30; i++)
-                ls.Add(new ProductVM() { ID = i });
-            return ls;
+            return _db.Products.Where(item => item.isDel == false).ToList();
         }
 
+        public List<Product> GetProductsByCate(int id)
+        {
+            return _db.Products.Where(item => item.CategoryID == id).ToList();
+        }
 
-        // public async Task CountItemsOf(int instan, int key, int wireID)
-        // {
-        //     _itemCount = 0;
-        //     if (wireID == 0)
-        //         switch (instan)
-        //         {
-        //             case Instances.CATEGORY:
-        //                 _itemCount = await _db.Products.Where(p => p.CategoryID == key).CountAsync();
-        //                 break;
-        //             case Instances.PROMOTION:
-        //                 _itemCount = await _db.Products.Where(p => p.PromotionID == key).CountAsync();
-        //                 break;
-        //             case Instances.PROMOTIONALL:
-        //                 _itemCount = await _db.Products.Where(p => p.PromotionID != 1).CountAsync();
-        //                 break;
-        //         }
-        //     else
-        //         switch (instan)
-        //         {
-        //             case Instances.CATEGORY:
-        //                 _itemCount = await _db.Products.Where(p => p.CategoryID == key && p.isShow == true && p.TypeWireID == wireID).CountAsync();
-        //                 break;
-        //             case Instances.PROMOTION:
-        //                 _itemCount = await _db.Products.Where(p => p.PromotionID == key && p.isShow == true && p.TypeWireID == wireID).CountAsync();
-        //                 break;
-        //             case Instances.PROMOTIONALL:
-        //                 _itemCount = await _db.Products.Where(p => p.PromotionID != 1 && p.isShow == true && p.TypeWireID == wireID).CountAsync();
-        //                 break;
-        //         }
-        // }
+        public List<Product> GetProductsByWire(int id)
+        {
+            return _db.Products.Where(item => item.TypeWireID == id).ToList();
+        }
 
-        // public async Task<(int, int)> GetPagesOf(int e, int key, int wireID)
-        // {
-        //     await CountItemsOf(e, key, wireID);
-        //     _pageCount = 0;
-        //     if (_itemCount > 0)
-        //     {
-        //         _pageCount = _itemCount / _itemPage;
-        //         _pageCount--;
-        //         if (_pageCount % _itemPage != 0)
-        //             _pageCount++;
-        //         return (_pageCount, _itemCount);
-        //     }
-        //     else
-        //         return (-1, _itemCount);
-        // }
+        public Product GetProductDetail(int id)
+        {
+            return _db.Products
+                .Where(item => item.ID == id)
+                .Include(p => p.ProductDetail)
+                .FirstOrDefault();
+        }
 
-        // public async Task<List<ProductVM>> GetProductsBy(int instan, int key, int wireID, int sort, int size, int skip = 0)
-        // {           
-        //     //Filter Data
-        //     IQueryable<Product> data;
-        //     switch (instan)
-        //     {
-        //         case Instances.CATEGORY:
-        //             if (wireID == 0)
-        //                 data = _db.Products.Where(p => p.CategoryID == key && p.isShow == true);
-        //             else
-        //                 data = _db.Products.Where(p => p.CategoryID == key && p.isShow == true && p.TypeWireID == wireID);
-        //             break;
-        //         case Instances.PROMOTION:
-        //             if (wireID == 0)
-        //                 data = _db.Products.Where(p => p.PromotionID == key && p.isShow == true);
-        //             else
-        //                 data = _db.Products.Where(p => p.PromotionID == key && p.isShow == true && p.TypeWireID == wireID);
-        //             break;
-        //         case Instances.PROMOTIONALL:
-        //             if (wireID == 0)
-        //                 data = _db.Products.Where(p => p.PromotionID != 1 && p.isShow == true);
-        //             else
-        //                 data = _db.Products.Where(p => p.PromotionID != 1 && p.isShow == true && p.TypeWireID == wireID); 
-        //             break;
-        //         default:
-        //             data = null;
-        //             break;                        
-        //     }
-        //     //Get Amount Item
-        //     if (_itemCount == 0)
-        //         _itemCount = data.Count();
-        //     //PrePaging
-        //     List<ProductVM> lsVM = new List<ProductVM>();
-        //     if (size <= 0)
-        //         return lsVM;
-        //     int takeItems = size;
-        //     int skipItems = skip * _itemPage;
-        //     int restItems = _itemCount - skipItems;
-        //     if (restItems < 16 && restItems > 0)
-        //         takeItems = restItems;
+        public Product FindProductByID(int id)
+        {
+            return _db.Products
+                .Where(item => item.ID == id)
+                .FirstOrDefault();
+        }
 
-        //         //Orther Data
-        //         if (sort != 0)
-        //     {
-        //         switch (sort)
-        //         {
-        //             case Sorts.PRICEUP:
-        //                 data.OrderBy(p => p.Price);
-        //                 break;
-        //             case Sorts.PRICEDOWN:
-        //                 data.OrderByDescending(p => p.Price);
-        //                 break;
-        //             case Sorts.DISCOUNT:
-        //                 data.OrderBy(p => p.PricePromotion);
-        //                 break;
-        //             case Sorts.SALECOUNT:
-        //                 data.OrderBy(p => p.SaleCount);
-        //                 break;
-        //         }
-        //     }
-        //     // Paging and Mapping data
-        //     await data.Skip(skipItems)
-        //             .Take(takeItems)
-        //             .Include(p => p.Category)
-        //             .Include(p => p.ProductDetail)
-        //             .Include(p => p.Images)
-        //             .AsNoTracking()
-        //             .ForEachAsync(p =>
-        //             {
-        //                 lsVM.Add(new ProductVM(p));
-        //             });   
-        //     return lsVM;
-        // }
+        public Object GetAllProductWithCategory()
+        {
+            DateTime time = DateTime.Now;
+            return _db.Promotions
+                .Where(item => item.Status == false
+                        && item.ToDate >= time && item.FromDate <= time).ToList();
+        }
 
-        // public async Task<List<ProductVM>> FindProductWithKey(string key,int mumberResultReturn)
-        // {
-        //     List<ProductVM> lsVM = new List<ProductVM>();
-        //     await _db.Products.Include(p => p.Category)
-        //                     .Include(p => p.ProductDetail)
-        //                     .Include(p => p.Images)
-        //                     .AsNoTracking()
-        //                     .Where(p => p.Name.Contains(key) || p.ProductDetail.Brand.Contains(key))
-        //                     .ForEachAsync(p => {
-        //                         lsVM.Add(new ProductVM(p));
-        //                     });
-        //     if (mumberResultReturn == 0)
-        //         return lsVM;
-        //     else
-        //         return lsVM.Take(mumberResultReturn).ToList();
-        // }
+        public List<Promotion> GetProductsPromotion(DateTime time)
+        {
+            return _db.Promotions
+                .Where(item => item.Status == true && item.TypePromotion == false
+                        && item.ToDate >= time && item.FromDate <= time)
+                .Include(item => item.PromotionDetail)
+                .ToList();
+        }
 
-        // public async Task<ProductVM> GetProductById(int id)
-        // {
-        //     var p = await _db.Products.Where(p => p.ID == id)
-        //                     .Include(p => p.Category)
-        //                     .Include(p => p.ProductDetail)
-        //                     .Include(p => p.Images)
-        //                     .AsNoTracking()
-        //                     .FirstAsync();      
-        //     return new ProductVM(p);
+        public void DeleteProduct(int id)
+        {
+            Product p = _db.Products.Find(id);
+            if (p != null)
+                p.isDel = true;
+            _db.SaveChanges();
+        }
 
-        // }
+        public void AddProduct(Product product, ProductDetail detail)
+        {
+            Product obj = _db.Products.Where(p => p.ID == product.ID).FirstOrDefault();
+            if (obj != null) return;
+            _db.Products.Add(product);
+            _db.SaveChanges();
+            detail.ProductID = _db.Products.Select(p => p.ID).ToList().Max();
+            _db.ProductDetails.Add(detail);
+            _db.SaveChanges();
+        }
 
-        // public async Task<List<ProductVM>> GetProductRange(int instan, int key,int wireID, int sort,int pageNumber)
-        // {
-        //     if (_pageCount < 0)
-        //         return null;
-        //     if (pageNumber < 0 || pageNumber > _pageCount)
-        //         return null;
-        //     return await GetProductsBy(instan, key, wireID, sort, _itemPage, pageNumber);
-        // }
+        public void UpdateProduct(Product product, ProductDetail detail)
+        {
+            var obj = _db.Products.Where(p => p.ID == product.ID).FirstOrDefault();
+            if (obj == null) return;
+            ChangeProductData(obj, product);
+            ProductDetail productDetail = _db.ProductDetails.Where(p => p.ProductID == obj.ID).FirstOrDefault();
+            ChangeDetailData(productDetail, detail);
+            _db.SaveChanges();
+        }
 
+        public void UpdateStatusProduct(int id, bool isShow)
+        {
+            Product p = _db.Products.Find(id);
+            if (p != null)
+                p.isShow = isShow;
+            _db.SaveChanges();
+        }
 
+        public void ChangeProductData(Product A, Product B)
+        {
+            A.Name = B.Name;
+            A.isShow = B.isShow;
+            A.Price = B.Price;
+            A.Image = B.Image;
+            A.CategoryID = B.CategoryID;
+            A.TypeWireID = B.TypeWireID;
+        }
 
+        public void ChangeDetailData(ProductDetail A, ProductDetail B)
+        {
+            A.Images = B.Images;
+
+            A.TypeGlass = B.TypeGlass;
+
+            A.TypeBorder = B.TypeBorder;
+
+            A.TypeMachine = B.TypeMachine;
+
+            A.Parameter = B.Parameter;
+
+            A.ResistWater = B.ResistWater;
+
+            A.Warranty = B.Warranty;
+
+            A.Brand = B.Brand;
+
+            A.Origin = B.Origin;
+
+            A.Color = B.Color;
+
+            A.Func = B.Func;
+
+            A.DescriptionProduct = B.DescriptionProduct;
+        }
     }
 }

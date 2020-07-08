@@ -1,10 +1,9 @@
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using aspCore.WatchShop.EF;
-using aspCore.WatchShop.Entities;
+using aspCore.WatchShop.Models;
+using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Caching;
 using Microsoft.Extensions.Caching.Memory;
 
 namespace aspCore.WatchShop.Areas.Admin.Controllers
@@ -12,29 +11,25 @@ namespace aspCore.WatchShop.Areas.Admin.Controllers
     [Area("Admin")]
     public class HomeController : Controller
     {
-        private watchContext _db = null;
-        private IMemoryCache _cache;
+        private OrderModel _model;
 
-        public HomeController(watchContext context, IMemoryCache memory)
+        public HomeController(watchContext context, IMemoryCache cache, IMapper mapper)
         {
-            _db = context;
-            _cache = memory;
+            _model = new OrderModel(context, mapper, cache);
         }
         public ActionResult Index()
         {
-
-            ViewBag.Dones = 100;
-            ViewBag.Deliverys = 20;
-            ViewBag.Received = 30;
-            ViewBag.TotalRevenue = 1000;
-            _cache.Set("Hello", DateTime.Now, DateTime.MaxValue);
+            var data = _model.GetCountStatus();
+            ViewBag.Dones = data.Item1;
+            ViewBag.Deliverys = data.Item3;
+            ViewBag.Received = data.Item2;
+            ViewBag.TotalRevenue = data.Item4;
             return View();
         }
 
         public JsonResult OrderReport(string start, string end)
         {
-            var obj = Json(_db.Products.ToList());
-            return obj;
+            return Json(_model.GetReport(start, end));
         }
 
     }

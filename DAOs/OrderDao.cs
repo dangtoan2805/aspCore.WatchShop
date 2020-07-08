@@ -1,9 +1,7 @@
-using System.Net.Mime;
 using System;
 using System.Collections.Generic;
 using aspCore.WatchShop.EF;
 using aspCore.WatchShop.Entities;
-using aspCore.WatchShop.Models;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
 
@@ -20,42 +18,56 @@ namespace aspCore.WatchShop.DAOs
 
         public List<Order> GetOrders(DateTime start, DateTime end)
         {
-            // Get List Order Include Customer
-            List<Order> data = _db.Orders
+            var data = _db.Orders
+                .Where(o => o.DateCreated >= start && o.DateCreated <= end)
                 .Include(o => o.Customer)
+                .Include(o => o.OrderDetails)
                 .ToList();
-            return data;
+            return data.Count <= 0 ? null : data;
         }
 
-        public List<OrderDetail> GetOrderDetails(int orderID)
+        public List<Order> GetAllOrders()
         {
-            // Get OrderDetail
-            return null;
+            return _db.Orders
+                .Include(p => p.OrderDetails)
+                .ToList();
         }
+
 
         public List<OrderDetail> GetOrderDetailsWithProduct(int orderID)
         {
             // Get OrderDetail Inluce ID,Name, Img of Product
-            return null;
+            return (List<OrderDetail>)_db.OrderDetails
+                .Where(od => od.OrderID == orderID)
+                .Include(od => od.Product)
+                .ToList();
         }
-
 
         public void UpdateOrderStatus(int orderID, int index)
         {
-            // Update order satatus in DB
+            Order order = _db.Orders.Where(o => o.ID == orderID).FirstOrDefault();
+            if (order == null) return;
+            order.Status = index;
+            _db.SaveChanges();
         }
-
 
         public Order GetOrderByID(int id)
         {
-
-            return null;
+            // Get List Order Include Customer, OD
+            return _db.Orders
+                .Where(o => o.ID == id)
+                .Include(o => o.Customer)
+                .Include(o => o.OrderDetails)
+                .FirstOrDefault();
         }
 
-        public List<Order> FindOrders(string key)
+        public List<Order> FindByCustomer(string name)
         {
-            // Find List orders with key (ID, Name Customer)
-            return null;
+            return _db.Orders
+                .Where(o => o.Customer.Name.Contains(name))
+                .Include(o => o.Customer)
+                .Include(o => o.OrderDetails)
+                .ToList();
         }
     }
 }
